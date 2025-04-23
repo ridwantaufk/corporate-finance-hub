@@ -1,0 +1,124 @@
+Nama: Corporate Finance Hub
+Jenis: Sistem Keuangan Perusahaan (Corporate Financial Platform)
+Pengguna:
+Perusahaan klien besar (NGT, Toyota, Telkom)
+
+Internal staf (Admin, Relationship Manager, Compliance Officer, dsb)
+
+Fitur & Modul Utama Aplikasi
+1. Otentikasi & Perizinan
+-Multi-role login (Client, Admin, RM, Finance Controller)
+
+-2FA dan role-based access
+
+-Approval Matrix (tiap transaksi harus lolos hierarki)
+
+2. Cash Management
+Virtual Account
+
+-Real-time cash position
+
+-Cash pooling (gabung saldo dari banyak akun)
+
+-Scheduled payment & sweeping
+
+3. Payment & Collection
+Bulk payment (payroll, vendor)
+
+-Invoicing & e-collection
+
+-Auto reconciliation
+
+-QRIS & VA integration
+
+4. Trade Finance
+Letter of Credit (L/C)
+
+-SKBDN, Invoice Financing
+
+-Import/Export Tracking
+
+-Document Exchange & Approval
+
+5. Treasury & FX
+-Foreign Exchange Transactions
+
+-Hedging tools
+
+-FX rate monitor
+
+-Intercompany settlement
+
+6. Tax & Compliance
+-E-faktur / PPN export
+
+-Laporan keuangan untuk regulator (BI, OJK)
+
+-Anti-money laundering module (AML/CFT check)
+
+7. Analytic Dashboard
+-Cash flow forecast
+
+-Multi-dimensional reporting
+
+-Transaction risk scoring
+
+-Heatmap transaksi mencurigakan
+
+====================================================================
+
+/backend
+  ├── /config
+  │   ├── db.js                  # Konfigurasi koneksi ke PostgreSQL
+  │   ├── server.js              # Menjalankan server Express dan Apollo
+  ├── /graphql
+  │   ├── /auth
+  │   │   ├── auth.schema.js     # Schema GraphQL untuk Auth
+  │   │   ├── auth.resolvers.js  # Resolver GraphQL untuk Auth
+  │   │   ├── auth.services.js   # Business logic untuk Auth
+  │   │   ├── auth.db.js         # Database queries untuk Auth
+  │   ├── /cash_management
+  │   │   ├── cashManagement.schema.js  # Schema GraphQL untuk Cash Management
+  │   │   ├── cashManagement.resolvers.js # Resolver GraphQL untuk Cash Management
+  │   │   ├── cashManagement.services.js  # Business logic untuk Cash Management
+  │   │   ├── cashManagement.db.js  # Database queries untuk Cash Management
+  │   ├── /payments_collections
+  │   │   ├── paymentsCollections.schema.js  # Schema GraphQL untuk Payments & Collections
+  │   │   ├── paymentsCollections.resolvers.js # Resolver GraphQL untuk Payments & Collections
+  │   │   ├── paymentsCollections.services.js  # Business logic untuk Payments & Collections
+  │   │   ├── paymentsCollections.db.js  # Database queries untuk Payments & Collections
+  │   ├── /trade_finance
+  │   │   ├── tradeFinance.schema.js  # Schema GraphQL untuk Trade Finance
+  │   │   ├── tradeFinance.resolvers.js # Resolver GraphQL untuk Trade Finance
+  │   │   ├── tradeFinance.services.js  # Business logic untuk Trade Finance
+  │   │   ├── tradeFinance.db.js  # Database queries untuk Trade Finance
+  │   ├── /treasury_fx
+  │   │   ├── treasuryFx.schema.js  # Schema GraphQL untuk Treasury & FX
+  │   │   ├── treasuryFx.resolvers.js # Resolver GraphQL untuk Treasury & FX
+  │   │   ├── treasuryFx.services.js  # Business logic untuk Treasury & FX
+  │   │   ├── treasuryFx.db.js  # Database queries untuk Treasury & FX
+  │   ├── /tax_compliance
+  │   │   ├── taxCompliance.schema.js  # Schema GraphQL untuk Tax & Compliance
+  │   │   ├── taxCompliance.resolvers.js  # Resolver GraphQL untuk Tax & Compliance
+  │   │   ├── taxCompliance.services.js  # Business logic untuk Tax & Compliance
+  │   │   ├── taxCompliance.db.js  # Database queries untuk Tax & Compliance
+  │   ├── /analytics
+  │   │   ├── analytics.schema.js  # Schema GraphQL untuk Analytics
+  │   │   ├── analytics.resolvers.js  # Resolver GraphQL untuk Analytics
+  │   │   ├── analytics.services.js  # Business logic untuk Analytics
+  │   │   ├── analytics.db.js  # Database queries untuk Analytics
+  ├── /middlewares
+  │   ├── authMiddleware.js  # Middleware untuk verifikasi token JWT dan autentikasi
+  ├── /models
+  │   ├── user.js          # Model pengguna jika menggunakan ORM seperti Sequelize
+  ├── /resolvers
+  │   ├── index.js         # Menggabungkan semua resolvers untuk GraphQL
+  ├── /utils
+  │   ├── constants.js     # Variabel global dan konstanta
+  │   ├── errorHandler.js  # Menangani error global
+  ├── /routes
+  │   ├── authRoutes.js    # Route terkait otentikasi
+  │   ├── cashManagementRoutes.js  # Route terkait Cash Management
+  ├── .env                 # File untuk variabel lingkungan
+  ├── package.json
+  └── server.js            # Menjalankan server Express dan Apollo
