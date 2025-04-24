@@ -1,6 +1,8 @@
 import { gql } from "apollo-server-express";
 
 export const cashPositionTypeDefs = gql`
+  scalar JSON
+
   type CashPosition {
     position_id: Int!
     va_id: Int!

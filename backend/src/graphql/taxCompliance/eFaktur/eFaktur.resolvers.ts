@@ -1,7 +1,10 @@
 import { PoolClient } from "pg";
 import { EFaktur } from "./eFaktur.types";
+import GraphQLJSON from "graphql-type-json";
 
 export const eFakturResolvers = {
+  JSON: GraphQLJSON,
+
   Query: {
     async getEFakturById(
       _: any,

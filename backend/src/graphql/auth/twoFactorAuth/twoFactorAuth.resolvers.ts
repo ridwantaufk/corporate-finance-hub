@@ -5,8 +5,11 @@ import {
   getTwoFactorAuth,
 } from "./twoFactorAuth.services";
 import { TwoFactorAuthInput, TwoFactorAuth } from "./twoFactorAuth.types";
+import GraphQLJSON from "graphql-type-json";
 
 export const twoFactorAuthResolvers: IResolvers<any, Context> = {
+  JSON: GraphQLJSON,
+
   Mutation: {
     enableTwoFactorAuth: async (
       _: any,

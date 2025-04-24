@@ -1,3 +1,4 @@
+import GraphQLJSON from "graphql-type-json";
 import {
   getIntercompanySettlements,
   getIntercompanySettlementById,
@@ -7,6 +8,8 @@ import {
 } from "./intercompanySettlements.services";
 
 export const intercompanySettlementResolvers = {
+  JSON: GraphQLJSON,
+
   Query: {
     intercompanySettlements: async (_parent: any, _args: any, { db }: any) => {
       return getIntercompanySettlements(db);

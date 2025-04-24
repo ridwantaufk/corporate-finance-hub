@@ -8,8 +8,11 @@ import {
   deleteVirtualAccount,
 } from "./virtualAccount.services";
 import { VirtualAccount } from "./virtualAccount.types";
+import GraphQLJSON from "graphql-type-json";
 
 export const virtualAccountResolvers: IResolvers<any, Context> = {
+  JSON: GraphQLJSON,
+
   Query: {
     getVirtualAccounts: async (_: any, __: any, { db }: Context) => {
       const client = await db.connect();

@@ -1,3 +1,4 @@
+import GraphQLJSON from "graphql-type-json";
 import {
   getFxTransactions,
   getFxTransactionById,
@@ -6,6 +7,8 @@ import {
 } from "./fxTransactions.services";
 
 export const fxTransactionResolvers = {
+  JSON: GraphQLJSON,
+
   Query: {
     fxTransactions: async (_parent: any, _args: any, { db }: any) => {
       return getFxTransactions(db);

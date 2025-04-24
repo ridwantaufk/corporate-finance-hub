@@ -1,3 +1,4 @@
+import { GraphQLJSON } from "graphql-type-json";
 import { PoolClient } from "pg";
 import {
   getTransactionHeatmaps,
@@ -9,6 +10,8 @@ import {
 import { TransactionHeatmap } from "./transactionHeatmap.types";
 
 export const transactionHeatmapResolvers = {
+  JSON: GraphQLJSON,
+
   Query: {
     getTransactionHeatmaps: async (
       _: any,

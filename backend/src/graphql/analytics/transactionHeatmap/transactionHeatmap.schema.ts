@@ -1,6 +1,8 @@
 import { gql } from "apollo-server-express";
 
 export const transactionHeatmapTypeDefs = gql`
+  scalar JSON
+
   type TransactionHeatmap {
     heatmap_id: Int!
     date: String!

@@ -1,6 +1,8 @@
 import { gql } from "apollo-server-express";
 
 export const scheduledPaymentTypeDefs = gql`
+  scalar JSON
+
   type ScheduledPayment {
     payment_id: Int!
     va_id: Int!

@@ -8,8 +8,11 @@ import {
   deleteInvoice,
 } from "./invoices.services";
 import { InvoiceInput } from "./invoices.types";
+import GraphQLJSON from "graphql-type-json";
 
 export const invoicesResolvers: IResolvers<any, Context> = {
+  JSON: GraphQLJSON,
+
   Query: {
     getInvoices: async (_: any, __: any, { db }: Context) => {
       const client = await db.connect();

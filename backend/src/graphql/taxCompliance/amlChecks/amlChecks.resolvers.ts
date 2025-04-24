@@ -1,8 +1,11 @@
 import { PoolClient } from "pg";
 import { AMLCheck } from "./amlChecks.types";
 import * as amlCheckService from "./amlChecks.services";
+import GraphQLJSON from "graphql-type-json";
 
 export const amlCheckResolvers = {
+  JSON: GraphQLJSON,
+
   Query: {
     getAMLChecks: async (_: any, __: any, { db }: { db: PoolClient }) => {
       return amlCheckService.getAMLChecks(db);

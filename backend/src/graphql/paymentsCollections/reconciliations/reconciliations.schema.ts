@@ -1,6 +1,8 @@
 import { gql } from "apollo-server-express";
 
 export const reconciliationTypeDefs = gql`
+  scalar JSON
+
   type Reconciliation {
     reconciliation_id: Int!
     invoice_id: Int!

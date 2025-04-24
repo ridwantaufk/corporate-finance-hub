@@ -1,6 +1,8 @@
 import { gql } from "graphql-tag";
 
 export const intercompanySettlementTypeDefs = gql`
+  scalar JSON
+
   type IntercompanySettlement {
     settlement_id: Int!
     sender_company: Int!

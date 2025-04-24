@@ -1,6 +1,8 @@
 import { gql } from "apollo-server-express";
 
 export const virtualAccountTypeDefs = gql`
+  scalar JSON
+
   type VirtualAccount {
     va_id: Int!
     user_id: Int!

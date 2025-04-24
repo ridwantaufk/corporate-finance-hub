@@ -1,6 +1,8 @@
 import { gql } from "graphql-tag";
 
 export const importExportTrackingTypeDefs = gql`
+  scalar JSON
+
   type ImportExportTracking {
     tracking_id: ID!
     shipment_id: String!

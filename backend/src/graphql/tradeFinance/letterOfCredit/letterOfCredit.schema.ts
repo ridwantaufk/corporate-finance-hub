@@ -1,6 +1,8 @@
 import { gql } from "graphql-tag";
 
 export const letterOfCreditTypeDefs = gql`
+  scalar JSON
+
   type LetterOfCredit {
     lc_id: ID!
     client_id: Int!

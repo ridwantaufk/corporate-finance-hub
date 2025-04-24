@@ -1,6 +1,8 @@
 import { gql } from "graphql-tag";
 
 export const fxTransactionTypeDefs = gql`
+  scalar JSON
+
   type FxTransaction {
     fx_transaction_id: Int!
     client_id: Int!

@@ -5,8 +5,11 @@ import {
   createApprovalMatrix,
 } from "./approvalMatrix.services";
 import { ApprovalMatrix } from "./approvalMatrix.types";
+import GraphQLJSON from "graphql-type-json";
 
 export const approvalMatrixResolvers: IResolvers<any, Context> = {
+  JSON: GraphQLJSON,
+
   Query: {
     getApprovalMatrix: async (_: any, __: any, { db }: Context) => {
       const client = await db.connect();

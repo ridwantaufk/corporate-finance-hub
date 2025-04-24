@@ -1,3 +1,4 @@
+import GraphQLJSON from "graphql-type-json";
 import {
   getImportExportTrackings,
   getImportExportTrackingById,
@@ -7,6 +8,8 @@ import {
 } from "./importExportTracking.services";
 
 export const importExportTrackingResolvers = {
+  JSON: GraphQLJSON,
+
   Query: {
     getImportExportTrackings: async (_: any, __: any, { db }: any) => {
       return getImportExportTrackings(db);

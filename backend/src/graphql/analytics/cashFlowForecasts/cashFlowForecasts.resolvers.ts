@@ -7,8 +7,11 @@ import {
   updateCashFlowForecast,
   deleteCashFlowForecast,
 } from "./cashFlowForecasts.services";
+import GraphQLJSON from "graphql-type-json";
 
 export const cashFlowForecastResolvers = {
+  JSON: GraphQLJSON,
+
   Query: {
     getCashFlowForecasts: async (
       _parent: any,

@@ -7,8 +7,11 @@ import {
   updateTransactionRiskScore,
   deleteTransactionRiskScore,
 } from "./transactionRiskScores.services";
+import GraphQLJSON from "graphql-type-json";
 
 export const transactionRiskScoreResolvers = {
+  JSON: GraphQLJSON,
+
   Query: {
     getTransactionRiskScores: async (
       _parent: any,
