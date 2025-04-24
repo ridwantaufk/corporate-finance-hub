@@ -2,8 +2,11 @@ import { IResolvers } from "@graphql-tools/utils";
 import { Context } from "@/types/context";
 import { createUser, getUser, getUsers } from "./user.services";
 import { UserInput, User } from "./user.types";
+import GraphQLJSON from "graphql-type-json";
 
 export const usersResolvers: IResolvers<any, Context> = {
+  JSON: GraphQLJSON,
+
   Query: {
     getUsers: async (_: any, __: any, { db }: Context) => {
       const client = await db.connect();

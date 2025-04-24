@@ -7,8 +7,11 @@ import {
   deleteCashPosition,
 } from "./cashPosition.services";
 import { CashPosition } from "./cashPosition.types";
+import GraphQLJSON from "graphql-type-json";
 
 export const cashPositionResolvers: IResolvers<any, Context> = {
+  JSON: GraphQLJSON,
+
   Query: {
     getCashPositions: async (_: any, __: any, { db }: Context) => {
       const client = await db.connect();

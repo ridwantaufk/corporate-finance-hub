@@ -8,8 +8,11 @@ import {
   deleteBulkPayment,
 } from "./bulkPayments.services";
 import { BulkPayment, BulkPaymentInput } from "./bulkPayments.types";
+import GraphQLJSON from "graphql-type-json";
 
 export const bulkPaymentsResolvers: IResolvers<any, Context> = {
+  JSON: GraphQLJSON,
+
   Query: {
     getBulkPayments: async (_: any, __: any, { db }: Context) => {
       const client = await db.connect();

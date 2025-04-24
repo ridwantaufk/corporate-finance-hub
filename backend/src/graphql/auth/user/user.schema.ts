@@ -1,6 +1,8 @@
 import { gql } from "apollo-server-express";
 
 export const usersTypeDefs = gql`
+  scalar JSON
+
   type User {
     user_id: ID!
     username: String!

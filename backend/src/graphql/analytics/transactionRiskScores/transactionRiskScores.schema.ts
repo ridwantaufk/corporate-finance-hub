@@ -1,6 +1,10 @@
 import { gql } from "apollo-server-express";
 
 export const transactionRiskScoresTypeDefs = gql`
+  scalar JSON
+
+  scalar JSON
+
   type TransactionRiskScore {
     risk_id: Int!
     transaction_id: Int!

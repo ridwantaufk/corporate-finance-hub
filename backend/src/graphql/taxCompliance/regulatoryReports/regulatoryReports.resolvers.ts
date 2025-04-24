@@ -1,7 +1,10 @@
 import { PoolClient } from "pg";
 import { RegulatoryReport } from "./regulatoryReports.types";
+import GraphQLJSON from "graphql-type-json";
 
 export const regulatoryReportsResolvers = {
+  JSON: GraphQLJSON,
+
   Query: {
     async getRegulatoryReportById(
       _: any,

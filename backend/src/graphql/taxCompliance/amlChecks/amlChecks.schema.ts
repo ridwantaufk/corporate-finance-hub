@@ -1,6 +1,8 @@
 import { gql } from "apollo-server-express";
 
 export const amlChecksTypeDefs = gql`
+  scalar JSON
+
   type AMLCheck {
     check_id: ID!
     client_id: Int!

@@ -8,8 +8,11 @@ import {
   deleteReconciliation,
 } from "./reconciliations.services";
 import { Reconciliation } from "./reconciliations.types";
+import GraphQLJSON from "graphql-type-json";
 
 export const reconciliationResolvers: IResolvers<any, Context> = {
+  JSON: GraphQLJSON,
+
   Query: {
     getReconciliations: async (_: any, __: any, { db }: Context) => {
       const client = await db.connect();

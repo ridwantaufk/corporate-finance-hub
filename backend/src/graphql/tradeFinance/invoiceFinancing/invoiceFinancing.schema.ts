@@ -1,6 +1,8 @@
 import { gql } from "graphql-tag";
 
 export const invoiceFinancingTypeDefs = gql`
+  scalar JSON
+
   type InvoiceFinancing {
     invoice_id: ID!
     client_id: Int!

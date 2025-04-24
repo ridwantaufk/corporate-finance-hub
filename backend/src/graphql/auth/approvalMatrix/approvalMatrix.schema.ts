@@ -1,6 +1,8 @@
 import { gql } from "apollo-server-express";
 
 export const approvalMatrixTypeDefs = gql`
+  scalar JSON
+
   type ApprovalMatrix {
     role: String!
     min_approval_level: Int!

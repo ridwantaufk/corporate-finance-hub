@@ -1,3 +1,4 @@
+import GraphQLJSON from "graphql-type-json";
 import {
   getLetterOfCredits,
   getLetterOfCreditById,
@@ -7,6 +8,8 @@ import {
 } from "./letterOfCredit.services";
 
 export const letterOfCreditResolvers = {
+  JSON: GraphQLJSON,
+
   Query: {
     getLetterOfCredits: async (_: any, __: any, { db }: any) => {
       return getLetterOfCredits(db);

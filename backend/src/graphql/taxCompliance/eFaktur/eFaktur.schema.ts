@@ -1,6 +1,8 @@
 import { gql } from "apollo-server-express";
 
 export const eFakturTypeDefs = gql`
+  scalar JSON
+
   type EFaktur {
     faktur_id: ID!
     client_id: Int!

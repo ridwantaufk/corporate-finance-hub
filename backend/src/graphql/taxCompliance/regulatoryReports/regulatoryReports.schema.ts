@@ -1,6 +1,8 @@
 import { gql } from "apollo-server-express";
 
 export const regulatoryReportsTypeDefs = gql`
+  scalar JSON
+
   type RegulatoryReport {
     report_id: ID!
     report_type: String!

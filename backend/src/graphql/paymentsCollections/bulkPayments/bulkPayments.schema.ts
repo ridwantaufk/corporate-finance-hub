@@ -1,6 +1,8 @@
 import { gql } from "apollo-server-express";
 
 export const bulkPaymentsTypeDefs = gql`
+  scalar JSON
+
   type BulkPayment {
     payment_id: Int!
     sender_va_id: Int!

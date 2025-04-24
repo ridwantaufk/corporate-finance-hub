@@ -1,3 +1,4 @@
+import GraphQLJSON from "graphql-type-json";
 import {
   getInvoiceFinancings,
   getInvoiceFinancingById,
@@ -7,6 +8,8 @@ import {
 } from "./invoiceFinancing.services";
 
 export const invoiceFinancingResolvers = {
+  JSON: GraphQLJSON,
+
   Query: {
     getInvoiceFinancings: async (_: any, __: any, { db }: any) => {
       return getInvoiceFinancings(db);

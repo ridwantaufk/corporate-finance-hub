@@ -1,6 +1,8 @@
 import { gql } from "apollo-server-express";
 
 export const cashFlowForecastsTypeDefs = gql`
+  scalar JSON
+
   type CashFlowForecast {
     forecast_id: Int!
     client_id: Int!

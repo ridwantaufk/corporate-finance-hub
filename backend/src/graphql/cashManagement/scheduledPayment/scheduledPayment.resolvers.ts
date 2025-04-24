@@ -7,8 +7,11 @@ import {
   deleteScheduledPayment,
 } from "./scheduledPayment.services";
 import { ScheduledPayment } from "./scheduledPayment.types";
+import GraphQLJSON from "graphql-type-json";
 
 export const scheduledPaymentResolvers: IResolvers<any, Context> = {
+  JSON: GraphQLJSON,
+
   Query: {
     getScheduledPayments: async (_: any, __: any, { db }: Context) => {
       const client = await db.connect();

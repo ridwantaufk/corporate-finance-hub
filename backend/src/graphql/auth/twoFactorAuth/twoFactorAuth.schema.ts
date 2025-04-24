@@ -1,6 +1,8 @@
 import { gql } from "apollo-server-express";
 
 export const twoFactorAuthTypeDefs = gql`
+  scalar JSON
+
   type TwoFactorAuth {
     user_id: ID!
     secret_key: String!
