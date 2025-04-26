@@ -1,9 +1,18 @@
-import express, { Express } from "express";
-import { ApolloServer } from "apollo-server-express";
-import { typeDefs, resolvers } from "./graphql";
+// src/server.ts
+import { ApolloServer } from "@apollo/server";
+import express from "express";
+import { expressMiddleware } from "@apollo/server/express4"; // Untuk Express Middleware
+import typeDefs from "./graphql/schemas";
+import resolvers from "./graphql/resolvers";
+import dotenv from "dotenv";
+
+dotenv.config();
 
 async function startServer() {
-  const app: Express = express();
+  const app = express();
+
+  // Middleware untuk parsing body request JSON
+  app.use(express.json());
 
   const server = new ApolloServer({
     typeDefs,
@@ -12,15 +21,13 @@ async function startServer() {
 
   await server.start();
 
-  (server as any).applyMiddleware({ app, path: "/graphql" });
+  // Middleware untuk Apollo Server
+  app.use("/graphql", expressMiddleware(server));
 
-  app.listen({ port: 4000 }, () =>
-    console.log(
-      `Server is running at http://localhost:4000${server.graphqlPath}`
-    )
-  );
+  const PORT = process.env.PORT || 4000;
+  app.listen(PORT, () => {
+    console.log(`🚀 Server ready at http://localhost:${PORT}/graphql`);
+  });
 }
 
-startServer().catch((error) => {
-  console.error("Error starting the server:", error);
-});
+startServer();
