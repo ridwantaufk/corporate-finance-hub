@@ -304,53 +304,73 @@ CREATE TABLE analytics.transaction_heatmap (
 
 ====================================================================
 
-/corporate-finance-hub/backend
-├── /src
-│   ├── /config
-│   │   └── db.ts
-│   ├── /graphql
-│   │   ├── /auth
-│   │   │   ├── auth.schema.ts
-│   │   │   ├── auth.resolvers.ts
-│   │   │   ├── auth.services.ts
-│   │   │   └── auth.db.ts
-│   │   ├── /cash_management
-│   │   │   ├── cashManagement.schema.ts
-│   │   │   ├── cashManagement.resolvers.ts
-│   │   │   ├── cashManagement.services.ts
-│   │   │   └── cashManagement.db.ts
-│   │   ├── /payments_collections
-│   │   │   ├── paymentsCollections.schema.ts
-│   │   │   ├── paymentsCollections.resolvers.ts
-│   │   │   ├── paymentsCollections.services.ts
-│   │   │   └── paymentsCollections.db.ts
-│   │   ├── /trade_finance
-│   │   │   ├── tradeFinance.schema.ts
-│   │   │   ├── tradeFinance.resolvers.ts
-│   │   │   ├── tradeFinance.services.ts
-│   │   │   └── tradeFinance.db.ts
-│   │   ├── /treasury_fx
-│   │   │   ├── treasuryFx.schema.ts
-│   │   │   ├── treasuryFx.resolvers.ts
-│   │   │   ├── treasuryFx.services.ts
-│   │   │   └── treasuryFx.db.ts
-│   │   ├── /tax_compliance
-│   │   │   ├── taxCompliance.schema.ts
-│   │   │   ├── taxCompliance.resolvers.ts
-│   │   │   ├── taxCompliance.services.ts
-│   │   │   └── taxCompliance.db.ts
-│   │   └── /analytics
-│   │       ├── analytics.schema.ts
-│   │       ├── analytics.resolvers.ts
-│   │       ├── analytics.services.ts
-│   │       └── analytics.db.ts
-│   ├── /middlewares
-│   │   └── authMiddleware.ts
-│   ├── /utils
-│   │   ├── constants.ts
-│   │   └── errorHandler.ts
-│   ├── server.ts
-├── .env
-├── package.json
-├── tsconfig.json
-└── nodemon.json
+src/
+├── config/
+│   └── db.ts
+├── graphql/
+│   ├── resolvers/
+│   │   └── index.ts  # merge semua resolvers dari modules
+│   ├── schemas/
+│   │   └── index.ts  # merge semua typeDefs dari modules
+│   ├── types/
+│   │   └── index.ts  # types global kalo ada
+│   └── modules/
+│       ├── auth/
+│       │   ├── users/
+│       │   │   ├── user.resolver.ts
+│       │   │   ├── user.schema.ts
+│       │   │   ├── user.service.ts
+│       │   │   └── user.types.ts
+│       │   ├── two_factor_auth/
+│       │   │   └── ...
+│       │   └── approval_matrix/
+│       │       └── ...
+│       # --------------------
+│       ├── cash_management/
+│       │   ├── virtual_accounts/
+│       │   │   └── ...
+│       │   ├── cash_positions/
+│       │   │   └── ...
+│       │   └── scheduled_payments/
+│       │       └── ...
+│       # --------------------
+│       ├── payments_collections/
+│       │   ├── bulk_payments/
+│       │   │   └── ...
+│       │   ├── invoices/
+│       │   │   └── ...
+│       │   └── reconciliations/
+│       │       └── ...
+│       # --------------------
+│       ├── trade_finance/
+│       │   ├── letter_of_credit/
+│       │   │   └── ...
+│       │   ├── invoice_financing/
+│       │   │   └── ...
+│       │   └── import_export_tracking/
+│       │       └── ...
+│       # --------------------
+│       ├── treasury_fx/
+│       │   ├── fx_transactions/
+│       │   │   └── ...
+│       │   └── intercompany_settlements/
+│       │       └── ...
+│       # --------------------
+│       ├── tax_compliance/
+│       │   ├── e_faktur/
+│       │   │   └── ...
+│       │   ├── regulatory_reports/
+│       │   │   └── ...
+│       │   └── aml_checks/
+│       │       └── ...
+│       # --------------------
+│       ├── analytics/
+│       │   ├── cash_flow_forecasts/
+│       │   │   └── ...
+│       │   ├── transaction_risk_scores/
+│       │   │   └── ...
+│       │   └── transaction_heatmap/
+│       │       └── ...
+├── utils/
+│   └── auth.ts
+└── server.ts
