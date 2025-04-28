@@ -1,0 +1,210 @@
+.neumorphic-card {
+  background: #f0f4ff; /* Latar belakang kartu seperti susu */
+  border-radius: 20px;
+  box-shadow: 8px 8px 20px #d1d9e6, -8px -8px 20px #ffffff; /* Bayangan untuk efek neumorphic */
+  padding: 2rem;
+  width: 100%;
+  max-width: 400px; /* Lebar maksimal kartu */
+}
+
+.neumorphic-input {
+  width: 100%;
+  padding: 12px;
+  border-radius: 12px;
+  border: none; /* Tanpa border */
+  margin-top: 6px;
+  background: #f0f4ff; /* Latar belakang input sesuai tema */
+  color: #444; /* Warna teks input */
+  box-shadow: inset 3px 3px 6px #d1d9e6, inset -3px -3px 6px #ffffff; /* Bayangan inset */
+  transition: 0.3s ease; /* Transisi halus */
+}
+
+.neumorphic-input::placeholder {
+  color: #888; /* Warna placeholder */
+}
+
+.neumorphic-input:focus {
+  outline: none; /* Menghilangkan outline default */
+  box-shadow: inset 2px 2px 4px #d1d9e6, inset -2px -2px 4px #ffffff,
+    0 0 0 2px #6366f1; /* Bayangan inset saat fokus */
+}
+
+.input-pressed {
+  box-shadow: inset 3px 3px 6px rgba(0, 0, 0, 0.2),
+    inset -3px -3px 6px rgba(255, 255, 255, 0.5); /* Bayangan inset untuk efek "pressed" */
+  border: none; /* Tanpa border untuk tampilan bersih */
+}
+
+.neumorphic-btn {
+  background: #f0f4ff; /* Latar belakang tombol sesuai tema */
+  color: #6366f1; /* Warna teks tombol */
+  border: none; /* Tanpa border */
+  padding: 12px 24px; /* Padding tombol */
+  border-radius: 12px; /* Sudut melengkung */
+  box-shadow: 6px 6px 12px #c9d0e3, /* Bayangan luar */ -6px -6px 12px #ffffff; /* Bayangan dalam */
+  cursor: pointer; /* Kursor pointer */
+  font-weight: 600; /* Ketebalan teks */
+  font-size: 0.95rem; /* Ukuran teks */
+  transition: all 0.25s ease-in-out; /* Transisi halus */
+}
+
+.neumorphic-btn:hover {
+  box-shadow: 2px 2px 6px #c9d0e3,
+    /* Bayangan saat hover */ -2px -2px 6px #ffffff; /* Bayangan dalam saat hover */
+  color: #4f46e5; /* Warna teks saat hover */
+}
+
+.neumorphic-btn:active {
+  box-shadow: inset 3px 3px 6px #c9d0e3,
+    /* Bayangan inset saat ditekan */ inset -3px -3px 6px #ffffff; /* Bayangan inset dalam */
+  transform: scale(0.97); /* Efek skala saat ditekan */
+  color: #4338ca; /* Warna teks saat ditekan */
+}
+
+/* Switch Styles */
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  --hue: 220deg;
+  --width: 8rem; /* Ukuran lebih kecil */
+  --accent-hue: 22deg;
+  --duration: 0.6s;
+  --easing: cubic-bezier(1, 0, 1, 1);
+}
+
+.togglesw {
+  display: none;
+}
+
+.switch {
+  position: relative;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  width: var(--width);
+  height: calc(var(--width) / 3); /* Mengurangi tinggi */
+  border-radius: var(--width);
+  box-shadow: inset 10px 10px 10px hsl(var(--hue) 20% 80%),
+    inset -10px -10px 10px hsl(var(--hue) 20% 93%);
+}
+
+.indicator {
+  position: absolute;
+  width: 40%;
+  height: 60%;
+  transition: all var(--duration) var(--easing);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.indicator.left {
+  left: 10%;
+  border-radius: 100px 0 0 100px;
+  background: transparent;
+}
+
+.indicator.right {
+  right: 10%;
+  border-radius: 0 100px 100px 0;
+  background: transparent;
+}
+
+.button {
+  position: absolute;
+  z-index: 1;
+  width: 50%; /* Mengurangi lebar */
+  height: 80%;
+  left: 5%;
+  border-radius: 100px;
+  background-image: linear-gradient(
+    160deg,
+    hsl(var(--hue) 20% 95%) 40%,
+    hsl(var(--hue) 20% 65%) 70%
+  );
+  transition: all var(--duration) var(--easing);
+  box-shadow: 2px 2px 3px hsl(var(--hue) 18% 50% / 80%),
+    2px 2px 6px hsl(var(--hue) 18% 50% / 40%),
+    10px 20px 10px hsl(var(--hue) 18% 50% / 40%),
+    20px 30px 30px hsl(var(--hue) 18% 50% / 60%);
+}
+
+.togglesw:checked ~ .button {
+  left: 40%;
+}
+
+.togglesw:not(:checked) ~ .indicator.left,
+.togglesw:checked ~ .indicator.right {
+  box-shadow: inset 0 0 5px hsl(var(--hue) 20% 15% / 100%),
+    inset 20px 20px 10px hsl(var(--hue) 20% 15% / 100%),
+    inset 20px 20px 15px hsl(var(--hue) 20% 45% / 100%);
+}
+
+/* Styling untuk tulisan 3D dan 2D */
+.text-3d {
+  font-weight: bold;
+  color: #ff5722; /* Warna oranye */
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+.text-2d {
+  font-weight: bold;
+  color: #2196f3; /* Warna biru */
+  text-shadow: none;
+}
+
+/* Neumorphism styles */
+.neumorphism {
+  box-shadow: 8px 8px 15px rgba(0, 0, 0, 0.2),
+    -8px -8px 15px rgba(255, 255, 255, 0.7);
+  transition: box-shadow 0.3s ease, background-color 0.3s ease;
+}
+
+/* input session */
+.neumorphic-input.input-pressed:focus,
+.react-tel-input .form-control:focus {
+  border-color: #a3bffa;
+  box-shadow: 0 0 0 2px #e0e7ff;
+}
+
+.label {
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+  color: #394a56;
+}
+
+.toggle-active {
+  position: relative;
+  height: 30px;
+  width: 60px;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: -8px -4px 8px 0px #ffffff, 8px 4px 12px 0px #e0e7ff,
+    4px 4px 4px 0px #e0e7ff inset, -4px -4px 4px 0px #ffffff inset;
+}
+
+.toggle-state {
+  display: none;
+}
+
+.indicator-toggle-active {
+  height: 100%;
+  width: 200%;
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 15px;
+  transform: translate3d(-75%, 0, 0);
+  transition: transform 0.4s cubic-bezier(0.85, 0.05, 0.18, 1.35),
+    background 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: -8px -4px 8px 0px #ffffff, 8px 4px 12px 0px #d1d9e6;
+}
+
+.role-status {
+  margin-left: 12px; /* Space between the switch and text */
+  font-size: 14px;
+  font-weight: 500;
+  color: #49dc36; /* Green color to match the active state */
+  opacity: 0; /* Initially hidden */
+  transition: opacity 1s ease-out; /* Smooth fade-in/fade-out */
+}
