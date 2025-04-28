@@ -1,4 +1,3 @@
-// src/graphql/modules/cash_management/scheduled_payments/scheduled_payment.service.ts
 import db from "@/config/db";
 import { ScheduledPayment } from "./scheduled_payments.types";
 

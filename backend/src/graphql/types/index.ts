@@ -1,4 +1,3 @@
-// backend/src/graphql/types/index.ts
 import { User } from "../modules/auth/users/user.types";
 import { TwoFactorAuth } from "../modules/auth/two_factor_auth/two_factor_auth.types";
 import { ApprovalMatrix } from "../modules/auth/approval_matrix/approval_matrix.types";
@@ -49,7 +48,6 @@ import { CashFlowForecast } from "../modules/analytics/cash_flow_forecasts/cash_
 import { TransactionRiskScore } from "../modules/analytics/transaction_risk_scores/transaction_risk_scores.types";
 import { TransactionHeatmap } from "../modules/analytics/transaction_heatmap/transaction_heatmap.types";
 
-// Hanya ekspor tipe dan input tanpa mencoba mengelompokkannya dalam objek
 export {
   User,
   TwoFactorAuth,

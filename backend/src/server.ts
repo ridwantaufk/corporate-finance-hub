@@ -1,18 +1,29 @@
-// src/server.ts
-import { ApolloServer } from "@apollo/server";
 import express from "express";
-import { expressMiddleware } from "@apollo/server/express4"; // Untuk Express Middleware
+import dotenv from "dotenv";
+import cors from "cors";
+import cookieParser from "cookie-parser";
+import authRouter from "./routes/authRoutes";
+import protectedRouter from "./routes/protectedRoutes";
+import { ApolloServer } from "@apollo/server";
+import { expressMiddleware } from "@apollo/server/express4";
 import typeDefs from "./graphql/schemas";
 import resolvers from "./graphql/resolvers";
-import dotenv from "dotenv";
 
 dotenv.config();
 
 async function startServer() {
   const app = express();
 
-  // Middleware untuk parsing body request JSON
   app.use(express.json());
+
+  app.use(cookieParser());
+
+  app.use(
+    cors({
+      origin: "http://localhost:3000",
+      credentials: true,
+    })
+  );
 
   const server = new ApolloServer({
     typeDefs,
@@ -21,8 +32,10 @@ async function startServer() {
 
   await server.start();
 
-  // Middleware untuk Apollo Server
   app.use("/graphql", expressMiddleware(server));
+
+  app.use("/auth", authRouter);
+  app.use("/protected", protectedRouter);
 
   const PORT = process.env.PORT || 4000;
   app.listen(PORT, () => {

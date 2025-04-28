@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@import "./themes/neumorphism.css";
 
 :root {
   --background: #ffffff;

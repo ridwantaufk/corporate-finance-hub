@@ -1,4 +1,5 @@
 import {
+  loginUser,
   getUsers,
   getUserById,
   createUser,
@@ -9,9 +10,24 @@ import {
 const UserResolver = {
   Query: {
     getUsers: () => getUsers(),
-    getUser: (_: any, { user_id }: { user_id: number }) => getUserById(user_id),
+    getUser: (_: any, { userId }: { userId: number }) => getUserById(userId),
   },
   Mutation: {
+    login: async (_: any, args: { username: string; password: string }) => {
+      const { username, password } = args;
+      const result = await loginUser(username, password);
+
+      console.log("=== USER LOGIN SUCCESS ===");
+      console.log("User Data:", result.user);
+      console.log("Access Token:", result.accessToken);
+      console.log("===========================");
+
+      return {
+        accessToken: result.accessToken,
+        user: result.user,
+      };
+    },
+
     createUser: (
       _: any,
       {
@@ -19,13 +35,22 @@ const UserResolver = {
         email,
         password,
         role,
-      }: { username: string; email: string; password: string; role: string }
-    ) => createUser(username, email, password, role),
+        phone_number,
+        is_active,
+      }: {
+        username: string;
+        email: string;
+        password: string;
+        role: string;
+        phone_number?: string;
+        is_active?: boolean;
+      }
+    ) => createUser(username, email, password, role, phone_number, is_active),
 
     updateUser: (
       _: any,
       {
-        user_id,
+        userId,
         username,
         email,
         password,
@@ -33,7 +58,7 @@ const UserResolver = {
         phone_number,
         is_active,
       }: {
-        user_id: number;
+        userId: number;
         username?: string;
         email?: string;
         password?: string;
@@ -43,7 +68,7 @@ const UserResolver = {
       }
     ) =>
       updateUser(
-        user_id,
+        userId,
         username,
         email,
         password,
@@ -52,8 +77,7 @@ const UserResolver = {
         is_active
       ),
 
-    deleteUser: (_: any, { user_id }: { user_id: number }) =>
-      deleteUser(user_id),
+    deleteUser: (_: any, { userId }: { userId: number }) => deleteUser(userId),
   },
 };
 

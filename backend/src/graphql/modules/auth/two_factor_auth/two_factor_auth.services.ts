@@ -14,8 +14,7 @@ export const getTwoFactorAuthByUserId = async (
 export const enableTwoFactorAuth = async (
   user_id: number
 ): Promise<TwoFactorAuth> => {
-  // Generate secret key (bisa pakai library seperti speakeasy atau otplib)
-  const secret = "some-generated-secret"; // Placeholder
+  const secret = "some-generated-secret";
 
   const { rows } = await db.query(
     "INSERT INTO two_factor_auth (user_id, secret, is_enabled) VALUES ($1, $2, true) RETURNING *",

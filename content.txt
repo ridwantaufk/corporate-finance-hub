@@ -304,6 +304,8 @@ CREATE TABLE analytics.transaction_heatmap (
 
 ====================================================================
 
+Backend :
+
 src/
 ├── config/
 │   └── db.ts
@@ -374,3 +376,318 @@ src/
 ├── utils/
 │   └── auth.ts
 └── server.ts
+
+
+Frontend :
+
+frontend/
+├── public/
+│   ├── assets/
+│   │   ├── images/
+│   │   │   ├── logo.svg
+│   │   │   └── favicon.ico
+│   │   └── fonts/
+│   └── locales/
+│       ├── en/
+│       └── id/
+├── src/
+│   ├── app/
+│   │   ├── layout.tsx
+│   │   ├── page.tsx
+│   │   ├── error.tsx
+│   │   ├── loading.tsx
+│   │   ├── not-found.tsx
+│   │   ├── login/
+│   │   │   └── page.tsx
+│   │   ├── register/
+│   │   │   └── page.tsx
+│   │   ├── dashboard/
+│   │   │   └── page.tsx
+│   │   ├── auth/
+│   │   │   ├── users/
+│   │   │   │   ├── page.tsx
+│   │   │   │   ├── create/
+│   │   │   │   │   └── page.tsx
+│   │   │   │   └── [id]/
+│   │   │   │       ├── page.tsx
+│   │   │   │       └── edit/
+│   │   │   │           └── page.tsx
+│   │   │   ├── two-factor-auth/
+│   │   │   │   ├── page.tsx
+│   │   │   │   └── [userId]/
+│   │   │   │       └── page.tsx
+│   │   │   └── approval-matrix/
+│   │   │       ├── page.tsx
+│   │   │       └── [role]/
+│   │   │           └── page.tsx
+│   │   ├── cash-management/
+│   │   │   ├── virtual-accounts/
+│   │   │   │   ├── page.tsx
+│   │   │   │   ├── create/
+│   │   │   │   │   └── page.tsx
+│   │   │   │   └── [id]/
+│   │   │   │       ├── page.tsx
+│   │   │   │       └── edit/
+│   │   │   │           └── page.tsx
+│   │   │   ├── cash-positions/
+│   │   │   │   ├── page.tsx
+│   │   │   │   └── [id]/
+│   │   │   │       └── page.tsx
+│   │   │   └── scheduled-payments/
+│   │   │       ├── page.tsx
+│   │   │       ├── create/
+│   │   │       │   └── page.tsx
+│   │   │       └── [id]/
+│   │   │           ├── page.tsx
+│   │   │           └── edit/
+│   │   │               └── page.tsx
+│   │   ├── payments-collections/
+│   │   │   ├── bulk-payments/
+│   │   │   │   ├── page.tsx
+│   │   │   │   ├── create/
+│   │   │   │   │   └── page.tsx
+│   │   │   │   └── [id]/
+│   │   │   │       └── page.tsx
+│   │   │   ├── invoices/
+│   │   │   │   ├── page.tsx
+│   │   │   │   ├── create/
+│   │   │   │   │   └── page.tsx
+│   │   │   │   └── [id]/
+│   │   │   │       ├── page.tsx
+│   │   │   │       └── edit/
+│   │   │   │           └── page.tsx
+│   │   │   └── reconciliations/
+│   │   │       ├── page.tsx
+│   │   │       └── [id]/
+│   │   │           └── page.tsx
+│   │   ├── trade-finance/
+│   │   │   ├── letter-of-credit/
+│   │   │   │   ├── page.tsx
+│   │   │   │   ├── create/
+│   │   │   │   │   └── page.tsx
+│   │   │   │   └── [id]/
+│   │   │   │       ├── page.tsx
+│   │   │   │       └── edit/
+│   │   │   │           └── page.tsx
+│   │   │   ├── invoice-financing/
+│   │   │   │   ├── page.tsx
+│   │   │   │   ├── create/
+│   │   │   │   │   └── page.tsx
+│   │   │   │   └── [id]/
+│   │   │   │       └── page.tsx
+│   │   │   └── import-export-tracking/
+│   │   │       ├── page.tsx
+│   │   │       ├── create/
+│   │   │       │   └── page.tsx
+│   │   │       └── [id]/
+│   │   │           ├── page.tsx
+│   │   │           └── edit/
+│   │   │               └── page.tsx
+│   │   ├── treasury-fx/
+│   │   │   ├── fx-transactions/
+│   │   │   │   ├── page.tsx
+│   │   │   │   ├── create/
+│   │   │   │   │   └── page.tsx
+│   │   │   │   └── [id]/
+│   │   │   │       └── page.tsx
+│   │   │   └── intercompany-settlements/
+│   │   │       ├── page.tsx
+│   │   │       ├── create/
+│   │   │       │   └── page.tsx
+│   │   │       └── [id]/
+│   │   │           └── page.tsx
+│   │   ├── tax-compliance/
+│   │   │   ├── e-faktur/
+│   │   │   │   ├── page.tsx
+│   │   │   │   ├── create/
+│   │   │   │   │   └── page.tsx
+│   │   │   │   └── [id]/
+│   │   │   │       ├── page.tsx
+│   │   │   │       └── edit/
+│   │   │   │           └── page.tsx
+│   │   │   ├── regulatory-reports/
+│   │   │   │   ├── page.tsx
+│   │   │   │   ├── create/
+│   │   │   │   │   └── page.tsx
+│   │   │   │   └── [id]/
+│   │   │   │       └── page.tsx
+│   │   │   └── aml-checks/
+│   │   │       ├── page.tsx
+│   │   │       └── [id]/
+│   │   │           └── page.tsx
+│   │   └── analytics/
+│   │       ├── cash-flow-forecasts/
+│   │       │   ├── page.tsx
+│   │       │   └── [clientId]/
+│   │       │       └── page.tsx
+│   │       ├── transaction-risk-scores/
+│   │       │   ├── page.tsx
+│   │       │   └── [id]/
+│   │       │       └── page.tsx
+│   │       └── transaction-heatmap/
+│   │           └── page.tsx
+│   ├── components/
+│   │   ├── layout/
+│   │   │   ├── Header.tsx
+│   │   │   ├── Sidebar.tsx
+│   │   │   ├── Footer.tsx
+│   │   │   ├── MainLayout.tsx
+│   │   │   └── AuthLayout.tsx
+│   │   ├── ui/
+│   │   │   ├── Button.tsx
+│   │   │   ├── Input.tsx
+│   │   │   ├── Select.tsx
+│   │   │   ├── Checkbox.tsx
+│   │   │   ├── Radio.tsx
+│   │   │   ├── Table.tsx
+│   │   │   ├── Modal.tsx
+│   │   │   ├── Card.tsx
+│   │   │   ├── Tabs.tsx
+│   │   │   ├── Badge.tsx
+│   │   │   ├── Alert.tsx
+│   │   │   ├── Drawer.tsx
+│   │   │   ├── Dropdown.tsx
+│   │   │   ├── Pagination.tsx
+│   │   │   ├── Toast.tsx
+│   │   │   ├── Tooltip.tsx
+│   │   │   └── Skeleton.tsx
+│   │   └── modules/
+│   │       ├── auth/
+│   │       │   ├── LoginForm.tsx
+│   │       │   ├── RegisterForm.tsx
+│   │       │   ├── UserForm.tsx
+│   │       │   ├── UserList.tsx
+│   │       │   ├── UserDetails.tsx
+│   │       │   ├── TwoFactorAuthForm.tsx
+│   │       │   └── ApprovalMatrixForm.tsx
+│   │       ├── cash-management/
+│   │       │   ├── VirtualAccountForm.tsx
+│   │       │   ├── VirtualAccountList.tsx
+│   │       │   ├── VirtualAccountDetails.tsx
+│   │       │   ├── CashPositionTable.tsx
+│   │       │   ├── CashPositionDetails.tsx
+│   │       │   ├── ScheduledPaymentForm.tsx
+│   │       │   └── ScheduledPaymentList.tsx
+│   │       ├── payments-collections/
+│   │       │   ├── BulkPaymentForm.tsx
+│   │       │   ├── BulkPaymentList.tsx
+│   │       │   ├── BulkPaymentDetails.tsx
+│   │       │   ├── InvoiceForm.tsx
+│   │       │   ├── InvoiceList.tsx
+│   │       │   ├── InvoiceDetails.tsx
+│   │       │   ├── ReconciliationTable.tsx
+│   │       │   └── ReconciliationDetails.tsx
+│   │       ├── trade-finance/
+│   │       │   ├── LetterOfCreditForm.tsx
+│   │       │   ├── LetterOfCreditList.tsx
+│   │       │   ├── LetterOfCreditDetails.tsx
+│   │       │   ├── InvoiceFinancingForm.tsx
+│   │       │   ├── InvoiceFinancingList.tsx
+│   │       │   ├── ImportExportTrackingForm.tsx
+│   │       │   └── ImportExportTrackingList.tsx
+│   │       ├── treasury-fx/
+│   │       │   ├── FxTransactionForm.tsx
+│   │       │   ├── FxTransactionList.tsx
+│   │       │   ├── FxTransactionDetails.tsx
+│   │       │   ├── IntercompanySettlementForm.tsx
+│   │       │   └── IntercompanySettlementList.tsx
+│   │       ├── tax-compliance/
+│   │       │   ├── EFakturForm.tsx
+│   │       │   ├── EFakturList.tsx
+│   │       │   ├── EFakturDetails.tsx
+│   │       │   ├── RegulatoryReportForm.tsx
+│   │       │   ├── RegulatoryReportList.tsx
+│   │       │   ├── AmlChecksForm.tsx
+│   │       │   └── AmlChecksList.tsx
+│   │       └── analytics/
+│   │           ├── CashFlowForecastChart.tsx
+│   │           ├── CashFlowForecastFilter.tsx
+│   │           ├── TransactionRiskScoreTable.tsx
+│   │           ├── TransactionRiskScoreFilter.tsx
+│   │           ├── TransactionHeatmapChart.tsx
+│   │           └── TransactionHeatmapFilter.tsx
+│   ├── graphql/
+│   │   ├── codegen/
+│   │   │   └── generated.ts
+│   │   ├── auth/
+│   │   │   ├── users.queries.ts
+│   │   │   ├── users.mutations.ts
+│   │   │   ├── two-factor-auth.queries.ts
+│   │   │   ├── two-factor-auth.mutations.ts
+│   │   │   ├── approval-matrix.queries.ts
+│   │   │   └── approval-matrix.mutations.ts
+│   │   ├── cash-management/
+│   │   │   ├── virtual-accounts.queries.ts
+│   │   │   ├── virtual-accounts.mutations.ts
+│   │   │   ├── cash-positions.queries.ts
+│   │   │   ├── cash-positions.mutations.ts
+│   │   │   ├── scheduled-payments.queries.ts
+│   │   │   └── scheduled-payments.mutations.ts
+│   │   ├── payments-collections/
+│   │   │   ├── bulk-payments.queries.ts
+│   │   │   ├── bulk-payments.mutations.ts
+│   │   │   ├── invoices.queries.ts
+│   │   │   ├── invoices.mutations.ts
+│   │   │   ├── reconciliations.queries.ts
+│   │   │   └── reconciliations.mutations.ts
+│   │   ├── trade-finance/
+│   │   │   ├── letter-of-credit.queries.ts
+│   │   │   ├── letter-of-credit.mutations.ts
+│   │   │   ├── invoice-financing.queries.ts
+│   │   │   ├── invoice-financing.mutations.ts
+│   │   │   ├── import-export-tracking.queries.ts
+│   │   │   └── import-export-tracking.mutations.ts
+│   │   ├── treasury-fx/
+│   │   │   ├── fx-transactions.queries.ts
+│   │   │   ├── fx-transactions.mutations.ts
+│   │   │   ├── intercompany-settlements.queries.ts
+│   │   │   └── intercompany-settlements.mutations.ts
+│   │   ├── tax-compliance/
+│   │   │   ├── e-faktur.queries.ts
+│   │   │   ├── e-faktur.mutations.ts
+│   │   │   ├── regulatory-reports.queries.ts
+│   │   │   ├── regulatory-reports.mutations.ts
+│   │   │   ├── aml-checks.queries.ts
+│   │   │   └── aml-checks.mutations.ts
+│   │   └── analytics/
+│   │       ├── cash-flow-forecasts.queries.ts
+│   │       ├── transaction-risk-scores.queries.ts
+│   │       └── transaction-heatmap.queries.ts
+│   ├── lib/
+│   │   ├── apollo-client.ts
+│   │   ├── auth.ts
+│   │   ├── hooks/
+│   │   │   ├── useAuth.ts
+│   │   │   ├── useForm.ts
+│   │   │   └── useToast.ts
+│   │   └── utils/
+│   │       ├── date.ts
+│   │       ├── currency.ts
+│   │       ├── validators.ts
+│   │       └── format.ts
+│   ├── types/
+│   │   ├── auth.ts
+│   │   ├── cash-management.ts
+│   │   ├── payments-collections.ts
+│   │   ├── trade-finance.ts
+│   │   ├── treasury-fx.ts
+│   │   ├── tax-compliance.ts
+│   │   └── analytics.ts
+│   ├── styles/
+│   │   ├── globals.css
+│   │   └── themes/
+│   │       ├── light.css
+│   │       └── dark.css
+│   └── constants/
+│       ├── routes.ts
+│       ├── permissions.ts
+│       └── menu.ts
+├── .env.local
+├── .env.development
+├── .env.production
+├── .gitignore
+├── next.config.js
+├── tailwind.config.js
+├── tsconfig.json
+├── codegen.ts
+└── package.json
