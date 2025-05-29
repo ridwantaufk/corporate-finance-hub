@@ -31,7 +31,8 @@ export const createApolloServer = () => {
     // Error format to prevent sensitive information leaks
     formatError: (error) => {
       console.error("Formatted GraphQL Error:", error.message);
-      const originalError = error.extensions?.originalError as Error;
+      console.error("Path GraphQL Error:", error.path);
+      console.error("Location GraphQL Error:", error.locations);
 
       if (process.env.NODE_ENV === "production") {
         return {
