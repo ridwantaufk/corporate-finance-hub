@@ -1,0 +1,9 @@
+User-agent: *
+Disallow: /
+
+Allow: /auth/login
+Allow: /auth/register
+Allow: /guest/dashboard
+Allow: /guest/about
+
+Sitemap: https://masihtahap-pengembangan.com/sitemap.xml
