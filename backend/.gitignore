@@ -10,6 +10,10 @@ lerna-debug.log*
 # Diagnostic reports (https://nodejs.org/api/report.html)
 report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
 
+# private.pem & public.pem
+src/config/keys/private.pem
+src/config/keys/public.pem
+
 # Runtime data
 pids
 *.pid
