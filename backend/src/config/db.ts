@@ -1,5 +1,7 @@
 import { Pool } from "pg";
+import dotenv from "dotenv";
 
+dotenv.config();
 const db = new Pool({
   connectionString: process.env.DATABASE_URL,
   ssl:
@@ -8,15 +10,15 @@ const db = new Pool({
       : false,
 });
 
-const connectToDatabase = async () => {
-  try {
-    await db.connect();
-    console.log("Berhasil terhubung ke database");
-  } catch (error) {
-    console.error("Gagal terhubung ke database:", error);
-  }
-};
+// const connectToDatabase = async () => {
+//   try {
+//     await db.connect();
+//     console.log("Berhasil terhubung ke database");
+//   } catch (error) {
+//     console.error("Gagal terhubung ke database:", error);
+//   }
+// };
 
-connectToDatabase();
+// connectToDatabase();
 
 export default db;
