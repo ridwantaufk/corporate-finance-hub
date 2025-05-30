@@ -1,5 +1,35 @@
 @import "tailwindcss";
 @import "./themes/neumorphism.css";
+@import "./themes/themes.css";
+@import "./sosmed.css";
+@import "./projectButton.css";
+@import "./loadingSpinner.css";
+
+/* WebKit browsers (Chrome, Edge, Safari) */
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgba(107, 33, 168, 0.2); /* idle */
+  border-radius: 9999px;
+  border: 1px solid transparent;
+  background-clip: content-box;
+  transition: background-color 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(107, 33, 168, 0.6); /* hover */
+}
+
+::-webkit-scrollbar-thumb:active {
+  background-color: rgba(107, 33, 168, 1); /* clicked */
+}
 
 :root {
   --background: #ffffff;
@@ -15,13 +45,83 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
+    --background: var(--bg-image);
     --foreground: #ededed;
   }
 }
 
 body {
   background: var(--background);
+  background-size: cover;
+  /* backdrop-filter: var(--blur); */
+  background-repeat: no-repeat;
+  background-attachment: fixed;
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Scrollbar Horizontal - Custom */
+.scroll-x {
+  overflow-x: auto;
+  overflow-y: hidden;
+  max-height: 40px; /* custom tinggi scroll area */
+}
+
+/* Webkit Scrollbar */
+.scroll-x::-webkit-scrollbar {
+  height: 3.5px; /* tinggi scrollbar horizontal */
+}
+
+.scroll-x::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* Scrollbar thumb (custom track) */
+.scroll-x::-webkit-scrollbar-thumb {
+  background-color: rgba(53, 53, 53, 0.88);
+  border-radius: 9999px;
+  transition: opacity 0.3s ease; /* smooth transition */
+}
+
+/* Hover state (nampak sedikit lebih) */
+.scroll-x::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(94, 94, 94, 0.467);
+}
+
+/* Active state (lebih nampak) */
+.scroll-x::-webkit-scrollbar-thumb:active {
+  background-color: rgba(110, 110, 110, 0.975);
+}
+
+.card {
+  position: relative;
+}
+
+.card::before,
+.card::after {
+  content: "";
+  width: 45%;
+  height: 45%;
+  position: absolute;
+  border-radius: 15px;
+  z-index: -1;
+}
+
+.card::before {
+  top: -1.3px;
+  left: -1.3px;
+  background: linear-gradient(300deg, transparent 55%, #e81cff, #40c9ff)
+    border-box;
+}
+
+.card::after {
+  bottom: -1.3px;
+  right: -1.3px;
+  background: linear-gradient(120deg, transparent 55%, #e81cff, #40c9ff)
+    border-box;
+}
+
+/* custom css input phone number */
+.PhoneInputCountrySelect {
+  background: var(--neu-bg);
 }
