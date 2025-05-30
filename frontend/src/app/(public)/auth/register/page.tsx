@@ -42,7 +42,6 @@ interface FormState {
   biodata: Biodata;
 }
 
-// Role options data
 const roleOptions: RoleOption[] = [
   { value: "", label: "Select your role" },
   { value: "client", label: "Client" },
@@ -131,16 +130,13 @@ export default function RegisterPage() {
     setFormState((prev) => ({ ...prev, isActive: !prev.isActive }));
   }, []);
 
-  // Form submission
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     const { password, confirmPassword, role, biodata, isActive, username } =
       formState;
 
-    // Reset status
     setRegistrationStatus(null);
 
-    // Validation checks
     if (password !== confirmPassword) {
       setRegistrationStatus({
         success: false,
@@ -157,7 +153,6 @@ export default function RegisterPage() {
       return;
     }
 
-    // Required field validation
     if (!biodata.first_name || !biodata.last_name || !biodata.email) {
       setRegistrationStatus({
         success: false,
@@ -203,12 +198,10 @@ export default function RegisterPage() {
         message: "Registration successful! Redirecting to login...",
       });
 
-      // Redirect to login page after successful registration
       setTimeout(() => {
         window.location.href = "/login";
       }, 2000);
     } catch (err) {
-      // Detailed error logging to help debug issues
       console.error("Registration error details:", err);
 
       let errorMessage = "Registration failed";
@@ -217,7 +210,6 @@ export default function RegisterPage() {
         console.error("Error message:", err.message);
         errorMessage = err.message;
 
-        // Check for GraphQL errors
         if ("graphQLErrors" in err) {
           const graphQLErrors = (err as any).graphQLErrors;
           if (graphQLErrors && graphQLErrors.length > 0) {
@@ -226,7 +218,6 @@ export default function RegisterPage() {
           }
         }
 
-        // Check for network errors
         if ("networkError" in err) {
           const networkError = (err as any).networkError;
           if (networkError) {
