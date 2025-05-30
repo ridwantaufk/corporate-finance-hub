@@ -9,6 +9,11 @@ export interface User {
   updated_at: string;
 }
 
+export interface LoginResponse {
+  success: boolean;
+  message: string;
+}
+
 export interface TwoFactorAuth {
   id: number;
   user_id: number;
