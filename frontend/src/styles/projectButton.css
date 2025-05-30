@@ -1,0 +1,164 @@
+.buttonProject {
+  /* border: 1px solid black; */
+  position: relative;
+  display: grid;
+  place-items: center;
+  height: fit-content;
+  width: fit-content;
+  transition: 0.2s;
+  border-radius: 50%;
+  /* border: 2px solid; */
+}
+
+.socialButtons-wrapper:hover .buttonProject {
+  /* border: 1px solid; */
+  padding: 70px;
+}
+
+.mainButton {
+  position: relative;
+  display: grid;
+  place-items: center;
+  padding: 10px;
+  border: none;
+  background: var(--accent-dark);
+  color: var(--text-accent);
+  border-radius: 50%;
+  transition: 0.2s;
+  z-index: 100;
+}
+
+.buttons {
+  position: absolute;
+  display: grid;
+  place-items: center;
+  padding: 10px;
+  border: none;
+  /* background: var(--card); */
+  /* color: var(--text-accent); */
+  transition: 0.2s;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.discord-button:hover {
+  color: #5865f2;
+}
+
+.socialButtons-wrapper:hover .discord-button {
+  translate: 70px 0px;
+  background: transparent;
+}
+
+.react-button {
+  color: #1a8bd1;
+  transition: color 0.2s ease-in-out;
+}
+
+.react-button:hover {
+  color: #1ca1f1;
+  transition: color 0.2s ease-in-out;
+}
+
+.socialButtons-wrapper:hover .react-button {
+  translate: 70px 0px;
+  background: transparent;
+}
+
+.twitter-button {
+  color: #1884c8;
+  transition: color 0.2s ease-in-out;
+}
+
+.twitter-button:hover {
+  color: #1ca1f1;
+}
+
+.socialButtons-wrapper:hover .twitter-button {
+  translate: 47px -47px;
+  background: transparent;
+}
+
+.reddit-button {
+  color: #d53900;
+  transition: color 0.2s ease-in-out;
+}
+
+.reddit-button:hover {
+  color: #ff4500;
+}
+
+.socialButtons-wrapper:hover .reddit-button {
+  translate: 0px -70px;
+  background: transparent;
+}
+
+.messenger-button {
+  color: #007fda;
+  transition: color 0.2s ease-in-out;
+}
+
+.messenger-button:hover {
+  color: #0093ff;
+}
+
+.socialButtons-wrapper:hover .messenger-button {
+  translate: -47px -47px;
+  background: transparent;
+}
+
+.pinterest-button {
+  color: #cf0022;
+  transition: color 0.2s ease-in-out;
+}
+
+.pinterest-button:hover {
+  color: #f0002a;
+}
+
+.socialButtons-wrapper:hover .pinterest-button {
+  translate: -70px 0px;
+  background: transparent;
+}
+
+.instagram-button {
+  color: #d21095;
+  transition: color 0.2s ease-in-out;
+}
+
+.instagram-button:hover {
+  color: #f914af;
+}
+
+.socialButtons-wrapper:hover .instagram-button {
+  translate: -47px 47px;
+  background: transparent;
+}
+
+.facebook-button {
+  color: #135fc3;
+  transition: color 0.2s ease-in-out;
+}
+
+.facebook-button:hover {
+  color: #1877f2;
+}
+
+.socialButtons-wrapper:hover .facebook-button {
+  translate: 0px 70px;
+  background: transparent;
+}
+
+.whatsapp-button {
+  color: #1da44f;
+  transition: color 0.2s ease-in-out;
+}
+
+.whatsapp-button:hover {
+  color: #25d366;
+}
+
+.socialButtons-wrapper:hover .whatsapp-button {
+  translate: 47px 47px;
+  background: transparent;
+}

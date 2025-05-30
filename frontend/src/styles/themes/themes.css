@@ -1,0 +1,95 @@
+:root[data-theme="dark-purple"] {
+  --accent: #9333ea;
+  --accent-dark: #6b21a8;
+  --body: rgba(24, 16, 45, 0.5);
+  --card: #0e0e0e;
+  --text: #f3e8ffe5;
+  --text-accent: #c084fc;
+  --card-2: rgba(20, 20, 20, 0.912);
+  --bg-gradient: linear-gradient(90deg, #1e1b2e 0%, #9333ea 100%);
+  --bg-image: url("/images/background.jpg");
+  --blur: blur(10px);
+
+  --neu-bg: #1a112e;
+  --neu-light: #2e1f4b;
+  --neu-dark: #0a0714;
+  --neu-inset-light: #2e1f4b;
+  --neu-inset-dark: #0a0714;
+}
+
+:root[data-theme="light-gold"] {
+  --accent: #ffa200;
+  --accent-dark: #e9bd0eeb;
+  --body: rgba(208, 163, 16, 0.206);
+  --card: #fef9c3cd;
+  --text: #1c1917;
+  --text-accent: #904e01;
+  --card-2: #cace51c5;
+  --bg-gradient: linear-gradient(90deg, #fff7d6 0%, #f59e0b 100%);
+  /* --bg-image: url("/images/yellow-white.jpg"); */
+  --bg-image: var(--neu-bg);
+  --blur: blur(10px);
+
+  --neu-bg: #fff8e7;
+  --neu-light: #ffffff;
+  --neu-dark: #e6d4b0;
+  --neu-inset-light: #ffffff;
+  --neu-inset-dark: #d6b57f;
+}
+
+:root[data-theme="blue-modern"] {
+  --accent: #3b82f6;
+  --accent-dark: #1e40af;
+  --body: rgba(255, 255, 255, 0.765);
+  --card: #e0f2fe;
+  --text: rgb(0, 22, 65);
+  --text-accent: #246fcb;
+  --card-2: rgba(79, 103, 210, 0.962);
+  --bg-gradient: linear-gradient(90deg, #dbeafe 0%, #3b82f6 100%);
+  --bg-image: url("/images/bg-blue-modern.jpg");
+  --blur: blur(10px);
+
+  --neu-bg: #dbeafe;
+  --neu-light: #f0f9ff;
+  --neu-dark: #93c5fd;
+  --neu-inset-light: #e0f2ff;
+  --neu-inset-dark: #60a5fa;
+}
+
+:root[data-theme="forest-green"] {
+  --accent: #22c55e;
+  --accent-dark: #166534;
+  --body: rgba(236, 253, 245, 0.4);
+  --card: #d1fae5;
+  --text: #064e3b;
+  --text-accent: #10b981;
+  --card-2: rgba(14, 241, 184, 0.927);
+  --bg-gradient: linear-gradient(90deg, #dcfce7 0%, #22c55e 100%);
+  --bg-image: url("/images/bg-forest-green.jpg");
+  --blur: blur(10px);
+
+  --neu-bg: #d1fae5;
+  --neu-light: #ffffff;
+  --neu-dark: #b0e3c6;
+  --neu-inset-light: #ffffff;
+  --neu-inset-dark: #a2d2b8;
+}
+
+:root[data-theme="frosted-glass"] {
+  --accent: #6366f1; /* Indigo halus untuk aksen */
+  --accent-dark: #4f46e5;
+  --body: #f0f4ff; /* Latar utama: susu-biru */
+  --card: #f0f4ff; /* Kartu solid, tanpa transparansi */
+  --text: #1f2937; /* Abu gelap */
+  --text-accent: #6366f1; /* Sama seperti accent */
+  --card-2: #e6ecff; /* Versi lebih terang */
+  --bg-gradient: linear-gradient(90deg, #f0f4ff 0%, #e0e7ff 100%);
+  --bg-image: none;
+  --blur: none;
+
+  --neu-bg: #f0f4ff;
+  --neu-light: #ffffff;
+  --neu-dark: #d1d9e6;
+  --neu-inset-light: #ffffff;
+  --neu-inset-dark: #c9d0e3;
+}
