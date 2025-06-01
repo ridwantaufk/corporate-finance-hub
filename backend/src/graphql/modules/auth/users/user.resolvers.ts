@@ -83,6 +83,32 @@ const UserResolver = {
       if (!result) {
         throw new Error("Invalid username or password");
       }
+      console.log("session. : ", session);
+      console.log("session.captchaVerified : ", session.captchaVerified);
+      console.log(
+        "VERIFFF : ",
+        !session.captchaVerified ||
+          (session.captchaVerified.response !== "success" &&
+            !session.captchaVerified.token)
+      );
+      if (
+        !session.captchaVerified ||
+        (session.captchaVerified.response !== "success" &&
+          !session.captchaVerified.token)
+      )
+        throw new Error("Captcha not verified");
+
+      await new Promise<void>((resolve, reject) => {
+        req.session.destroy((err) => {
+          if (err) {
+            console.error("Failed to destroy session:", err);
+            reject(err);
+          } else {
+            resolve();
+          }
+        });
+      });
+
       // // opsi 1
       // setTokenCookie(res, result.accessToken);
 
@@ -121,6 +147,10 @@ const UserResolver = {
       const verification = await verifyCaptcha(session.captcha, responseBody);
 
       console.log("verification:", verification);
+
+      context.session.captchaVerified = verification;
+
+      await context.session.save?.();
 
       return verification;
     },
