@@ -4,7 +4,6 @@ export const GET_CAPTCHA = gql`
   query GetCaptcha {
     getCaptcha {
       data
-      solution
     }
   }
 `;

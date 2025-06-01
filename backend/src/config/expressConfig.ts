@@ -4,6 +4,9 @@ import cookieParser from "cookie-parser";
 import { authMiddleware } from "@/middleware/authMiddleware";
 import session from "express-session";
 import { sessionCookieConfig } from "./cookieConfig";
+import dotenv from "dotenv";
+
+dotenv.config();
 
 /**
  * Configure the Express App with the required Middleware
@@ -31,7 +34,7 @@ export const configureExpressApp = (): Express => {
   // CORS configuration
   app.use(
     cors({
-      origin: process.env.FRONTEND_URL || "http://localhost:3000",
+      origin: process.env.FRONTEND_URL,
       credentials: true,
     })
   );

@@ -33,9 +33,28 @@ export default function LoginPage() {
 
   const [captchaToken, setCaptchaToken] = useState<string | null>(null);
   const [isCaptchaVerified, setIsCaptchaVerified] = useState(false);
-  const { data: captchaData, loading: captchaLoading } = useGetCaptcha();
-  const [verifyCaptchaMutation] = useVerifyCaptcha();
+  const {
+    data: captchaData,
+    loading: captchaLoading,
+    refetch: refetchCaptcha,
+  } = useGetCaptcha();
+  const [localCaptchaData, setLocalCaptchaData] = useState<{
+    background: {};
+    slider: {};
+  } | null>(null);
+
+  const [verifyCaptchaMutation, { error: verifFail }] = useVerifyCaptcha();
   const searchParams = useSearchParams();
+
+  useEffect(() => {
+    if (captchaData?.getCaptcha?.data) {
+      setLocalCaptchaData(captchaData.getCaptcha.data);
+      console.log(
+        "captchaData?.getCaptcha?.data : ",
+        captchaData?.getCaptcha?.data
+      );
+    }
+  }, [captchaData]);
 
   useEffect(() => {
     const email = searchParams.get("email") ?? "";
@@ -73,9 +92,17 @@ export default function LoginPage() {
       });
 
       if (data.verifyCaptcha.result !== "success") {
+        setLocalCaptchaData(null);
         setIsCaptchaVerified(false);
         setCaptchaToken(null);
-        throw new Error("Captcha verification failed");
+
+        const newCaptchaDataResult = await refetchCaptcha();
+
+        if (newCaptchaDataResult.data?.getCaptcha?.data) {
+          setLocalCaptchaData(newCaptchaDataResult.data.getCaptcha.data);
+        }
+
+        // throw new Error("Captcha verification failed");
       }
 
       setIsCaptchaVerified(true);
@@ -151,28 +178,25 @@ export default function LoginPage() {
               <StatusMessage success={false} message={loginError.message} />
             )}
 
-            {captchaData?.getCaptcha?.data ? (
-              <>
-                <div
-                  onMouseMove={handleMouseMove}
-                  onMouseDown={handleMouseDown}
-                  style={{ display: "inline-block" }}
-                >
-                  <SliderCaptcha
-                    create={() => Promise.resolve(captchaData.getCaptcha.data)}
-                    verify={verifyCaptcha}
-                    text={{
-                      anchor: "I am human",
-                      challenge: "Slide to finish the puzzle",
-                    }}
-                    variant="dark"
-                    callback={(token) => {
-                      // console.log("Captcha token:", token);
-                      // setCaptchaToken(token);
-                    }}
-                  />
-                </div>
-              </>
+            {localCaptchaData ? (
+              <div
+                onMouseMove={handleMouseMove}
+                onMouseDown={handleMouseDown}
+                style={{ display: "inline-block" }}
+              >
+                <SliderCaptcha
+                  create={() => Promise.resolve(localCaptchaData)}
+                  verify={verifyCaptcha}
+                  text={{
+                    anchor: "I am human",
+                    challenge: "Slide to finish the puzzle",
+                  }}
+                  variant="dark"
+                  callback={(token) => {
+                    // ...
+                  }}
+                />
+              </div>
             ) : (
               <div>Loading captcha...</div>
             )}

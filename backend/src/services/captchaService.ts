@@ -28,16 +28,7 @@ export async function verifyCaptcha(
     responseBody
   );
 
-  console.log("verification.result:", verification.result);
+  // console.log("verification.result:", verification);
 
-  if (verification.result !== "success") {
-    return { result: "fail" };
-  }
-
-  // Jika sukses, buat token unik (bisa gunakan token dari library jika ada)
-  const token =
-    Math.random().toString(36).substring(2, 15) +
-    Math.random().toString(36).substring(2, 15);
-
-  return { result: "success", token };
+  return verification;
 }
