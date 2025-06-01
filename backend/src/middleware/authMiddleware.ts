@@ -1,10 +1,6 @@
 // src/middleware/authMiddleware.ts
 import { Response, NextFunction } from "express";
-import {
-  clearTokenCookie,
-  verifyToken,
-  verifyTokenJwtRS256,
-} from "@/utils/auth";
+import { verifyToken, verifyTokenJwtRS256 } from "@/utils/auth";
 import { RequestWithUser } from "@/types";
 
 /**
@@ -15,7 +11,7 @@ export const authMiddleware = (
   req: RequestWithUser,
   res: Response,
   next: NextFunction
-) => {
+): void => {
   // pake ini biar lebih aman dan efisien, karena pengecekan tanpa set dari user, alias tdk manual pengisian token cookiesnya, karena dia otomatis ambil dari cookies yang nempel di client (cek: devTools->appliaction->cookies)
   const token = req.cookies?.token;
   // console.log("Auth Middleware: Checking token in cookies", token);
@@ -42,9 +38,6 @@ export const authMiddleware = (
     next();
   } catch (error) {
     req.user = null;
-
-    clearTokenCookie(res);
-    return res.status(401).send("Unauthorized: Token expired");
-    // next();
+    next();
   }
 };

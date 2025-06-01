@@ -63,6 +63,7 @@ const UserTypeDefs = gql`
 
   type Query {
     getCaptcha: CaptchaResponse!
+    verifyCaptcha(responseBody: JSON!): VerifyCaptchaResponse!
     getUsers: [User!]!
     getUserById(user_id: ID!): User
     me: User
