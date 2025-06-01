@@ -608,7 +608,7 @@ export const PageTitle = ({ title, subtitle }: PageTitleProps) => {
         initial={{ opacity: 0, y: -10 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
-        className="text-xl font-semibold text-center text-[var(--text-accent)] mb-2"
+        className="text-xl font-semibold text-center text-[var(--text-accent)] mb-10"
       >
         {title}
       </motion.h2>
