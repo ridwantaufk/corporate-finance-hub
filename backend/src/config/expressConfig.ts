@@ -3,6 +3,7 @@ import cors from "cors";
 import cookieParser from "cookie-parser";
 import { authMiddleware } from "@/middleware/authMiddleware";
 import session from "express-session";
+import { sessionCookieConfig } from "./cookieConfig";
 
 /**
  * Configure the Express App with the required Middleware
@@ -23,12 +24,7 @@ export const configureExpressApp = (): Express => {
       secret: process.env.SESSION_SECRET || "default_secret_key",
       resave: false,
       saveUninitialized: false,
-      cookie: {
-        secure: process.env.NODE_ENV === "production",
-        maxAge: 1000 * 5,
-        httpOnly: true,
-        sameSite: "lax",
-      },
+      cookie: sessionCookieConfig,
     })
   );
 
