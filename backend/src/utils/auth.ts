@@ -5,7 +5,6 @@ import { TokenPayload } from "@/types/index";
 import dotenv from "dotenv";
 import fs from "fs";
 import path from "path";
-import { tokenCookieOptions } from "@/config/authCookieConfig";
 
 dotenv.config();
 
@@ -54,7 +53,12 @@ export const verifyToken = (token: string): TokenPayload => {
  * @param token - JWT token
  */
 export const setTokenCookie = (res: Response, token: string): void => {
-  res.cookie("token", token, tokenCookieOptions);
+  res.cookie("token", token, {
+    httpOnly: true,
+    secure: process.env.NODE_ENV === "production",
+    sameSite: "strict",
+    maxAge: 1000 * 60 * 60,
+  });
 };
 
 /**
@@ -83,7 +87,12 @@ export const generateTokenJwtRS256 = (user: TokenPayload): string => {
 };
 
 export const setTokenjwtRS256 = (res: Response, token: string): void => {
-  res.cookie("token", token, tokenCookieOptions);
+  res.cookie("token", token, {
+    httpOnly: true,
+    secure: process.env.NODE_ENV === "production",
+    sameSite: "strict",
+    maxAge: 1000 * 60 * 60, // 1 hour
+  });
 };
 
 export const verifyTokenJwtRS256 = (token: string): TokenPayload => {
