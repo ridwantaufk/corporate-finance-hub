@@ -65,6 +65,7 @@ const UserTypeDefs = gql`
     getCaptcha: CaptchaResponse!
     getUsers: [User!]!
     getUserById(user_id: ID!): User
+    getUserBiodatas: [User!]!
     me: User
   }
 

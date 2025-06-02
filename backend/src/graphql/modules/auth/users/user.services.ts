@@ -1,10 +1,11 @@
 import db from "@/config/db";
-import { LoginResult, User, getUserWithId } from "./user.types";
+import { LoginResult, User, getUserBiodata, getUserWithId } from "./user.types";
 import bcrypt from "bcrypt";
 import { generateToken, generateTokenJwtRS256 } from "@/utils/auth";
 import {
   createBiodata,
   getBiodataById,
+  getBiodatas,
   updateBiodata,
 } from "@/graphql//modules/auth/biodata/biodata.services";
 
@@ -61,7 +62,7 @@ export const getUsers = async (): Promise<getUserWithId[]> => {
 };
 
 export const getUserById = async (
-  user_id: number
+  user_id: string
 ): Promise<getUserWithId | null> => {
   const { rows } = await db.query(
     "SELECT * FROM auth.users WHERE user_id = $1",
@@ -91,6 +92,20 @@ export const getUserByUsernameOrEmail = async (
   );
   // console.log("rows[0] : ", rows[0]);
   return rows[0] || null;
+};
+
+export const getUserBiodatas = async (): Promise<Partial<getUserBiodata>[]> => {
+  const users = await getUsers();
+  const biodatas = await getBiodatas();
+
+  const biodataMap = new Map(biodatas.map((b) => [b.biodata_id, b]));
+
+  const userBiodatas = users.map((user) => ({
+    ...user,
+    biodata: biodataMap.get(user.biodata_id),
+  }));
+
+  return userBiodatas;
 };
 
 export const createUser = async (
@@ -159,7 +174,7 @@ export const createUser = async (
 };
 
 export const updateUser = async (
-  user_id: number,
+  user_id: string,
   username?: string,
   password?: string,
   role?: string,

@@ -19,7 +19,7 @@ export interface Biodata {
 }
 
 export interface getBiodataWithId extends Partial<Biodata> {
-  biodata_id: number;
+  biodata_id: string;
 }
 
 // properti yang ingin diambil dan required
@@ -30,9 +30,9 @@ type OptionalFields = Partial<Omit<Biodata, "first_name" | "last_name">>;
 
 // menggbaungkan menjadi tipe baru
 export type CreateBiodata = RequiredFields &
-  OptionalFields & { biodata_id?: number };
+  OptionalFields & { biodata_id?: string };
 
 // UpdateBiodata tetap semua opsional kecuali biodata_id wajib
 export interface UpdateBiodata extends Partial<Biodata> {
-  biodata_id: number;
+  biodata_id: string;
 }

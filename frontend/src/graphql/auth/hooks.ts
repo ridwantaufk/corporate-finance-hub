@@ -10,7 +10,7 @@ import {
   VERIFY_CAPTCHA,
 } from "./mutations";
 
-import { GET_CAPTCHA, ME_QUERY } from "./queries";
+import { GET_CAPTCHA, GET_USER_BIODATAS_QUERY, ME_QUERY } from "./queries";
 
 export const useGetCaptcha = () => useQuery(GET_CAPTCHA);
 
@@ -22,6 +22,8 @@ export const useLoginUser = () =>
 export const useOauthLogin = () => useMutation(OAUTH_LOGIN);
 
 export const useMe = () => useQuery(ME_QUERY);
+
+export const useGetUserBiodatas = () => useQuery(GET_USER_BIODATAS_QUERY);
 
 export const useCreateUser = () => useMutation(CREATE_USER);
 

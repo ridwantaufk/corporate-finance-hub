@@ -8,6 +8,7 @@ import {
   deleteUser,
   createUser,
   getUserByField,
+  getUserBiodatas,
 } from "./user.services";
 import {
   createUserValidationRules,
@@ -50,7 +51,7 @@ const UserResolver = {
     },
     getUserById: (
       _parent: any,
-      { user_id }: { user_id: number },
+      { user_id }: { user_id: string },
       context: any
     ) => {
       if (!context.user) {
@@ -63,6 +64,16 @@ const UserResolver = {
         throw new Error("Not authenticated");
       }
       return getUsers();
+    },
+    getUserBiodatas: async (_: any, _args: any, context: any) => {
+      if (!context.user) {
+        throw new Error("Not authenticated");
+      }
+
+      const userBiodatas = await getUserBiodatas();
+      console.log("userBiodatas : ", userBiodatas);
+
+      return userBiodatas;
     },
   },
   Mutation: {
