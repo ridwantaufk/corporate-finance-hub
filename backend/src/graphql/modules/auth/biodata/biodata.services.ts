@@ -7,7 +7,7 @@ import {
 } from "./biodata.types";
 
 export const getBiodataById = async (
-  biodata_id: number
+  biodata_id: string
 ): Promise<getBiodataWithId> => {
   const client = await db.connect();
 
@@ -45,7 +45,7 @@ export const getBiodataByField = async (
   }
 };
 
-export const getBiodatas = async (): Promise<Biodata[]> => {
+export const getBiodatas = async (): Promise<getBiodataWithId[]> => {
   const client = await db.connect();
 
   try {

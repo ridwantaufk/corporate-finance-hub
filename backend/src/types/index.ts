@@ -11,7 +11,7 @@ interface googlePayload {
 }
 
 export interface TokenPayload {
-  user_id: number;
+  user_id: string;
   username: string;
   role: string;
 }

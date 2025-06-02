@@ -10,7 +10,7 @@ const BiodataResolver = {
   Query: {
     getBiodataById: async (
       _parent: any,
-      { biodata_id }: { biodata_id: number },
+      { biodata_id }: { biodata_id: string },
       context: any
     ) => {
       if (!context.user) {
