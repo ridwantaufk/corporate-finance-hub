@@ -22,12 +22,12 @@
 
 ---
 
-<table>
+<table style="border: none;">
   <tr>
-    <td>
+    <td style="border: none; padding: 0;">
       <img src="./frontend/public/thumbs/login_FE.png" width="100%" />
     </td>
-    <td>
+    <td style="border: none; padding: 0;">
       <img src="./frontend/public/thumbs/dashboard_FE.png" width="100%" />
     </td>
   </tr>
