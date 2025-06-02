@@ -22,8 +22,11 @@
 
 ---
 
-<img src="./frontend/public/thumbs/login_FE.png" />
-<img src="./frontend/public/thumbs/dashboard_FE.png" />
+<div style="display: flex; gap: 10px;">
+  <img src="./frontend/public/thumbs/login_FE.png" style="width: 50%;" />
+  <img src="./frontend/public/thumbs/dashboard_FE.png" style="width: 50%;" />
+</div>
+
 
 ---
 
