@@ -22,16 +22,10 @@
 
 ---
 
-<table style="border: none;">
-  <tr>
-    <td style="border: none; padding: 0;">
-      <img src="./frontend/public/thumbs/login_FE.png" width="100%" />
-    </td>
-    <td style="border: none; padding: 0;">
-      <img src="./frontend/public/thumbs/dashboard_FE.png" width="100%" />
-    </td>
-  </tr>
-</table>
+<p>
+  <img src="./frontend/public/thumbs/login_FE.png" width="49%" />
+  <img src="./frontend/public/thumbs/dashboard_FE.png" width="49%" />
+</p>
 
 ---
 
