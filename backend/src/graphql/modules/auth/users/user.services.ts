@@ -14,12 +14,10 @@ export const loginUser = async (
   username: string,
   password: string
 ): Promise<LoginResult | null> => {
-  console.log("password : ", typeof password, password);
   if (!username) throw new Error("Username must be filled!");
   if (!password) throw new Error("Password must be filled!");
   // console.log("masuk sini : ", typeof username, typeof password);
   const user = await getUserByUsernameOrEmail(username);
-  console.log("user db : ", user);
   if (!user) throw new Error("Username or email not found!");
 
   const isPasswordValid = await bcrypt.compare(password, user.password_hash);

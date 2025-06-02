@@ -49,10 +49,6 @@ export default function LoginPage() {
   useEffect(() => {
     if (captchaData?.getCaptcha?.data) {
       setLocalCaptchaData(captchaData.getCaptcha.data);
-      console.log(
-        "captchaData?.getCaptcha?.data : ",
-        captchaData?.getCaptcha?.data
-      );
     }
   }, [captchaData]);
 
@@ -80,7 +76,6 @@ export default function LoginPage() {
     trail: { x: number[]; y: number[] }
   ) => {
     try {
-      console.log("Captcha response from slider:", response, " - ", trail);
 
       const { data } = await verifyCaptchaMutation({
         variables: {
@@ -106,7 +101,6 @@ export default function LoginPage() {
       }
 
       setIsCaptchaVerified(true);
-      console.log("captchaToken : ", data.verifyCaptcha.token);
 
       setCaptchaToken(data.verifyCaptcha.token);
       return data.verifyCaptcha;
@@ -120,11 +114,6 @@ export default function LoginPage() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log(
-      "!isCaptchaVerified || !captchaToken :",
-      !isCaptchaVerified,
-      !captchaToken
-    );
     // if (!isCaptchaVerified || !captchaToken) {
     //   alert("Please complete and verify the captcha before logging in.");
     //   return;

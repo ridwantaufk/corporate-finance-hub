@@ -35,6 +35,7 @@ interface UserBiodata {
     nationality?: string;
     marital_status?: string;
     occupation?: string;
+    profile_picture?: string;
   };
 }
 
@@ -69,14 +70,14 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
   const [isLoggingOut, setIsLoggingOut] = useState(false);
 
   useEffect(() => {
-    console.log("statusLogin : ", statusLogin);
+    // console.log("statusLogin : ", statusLogin);
   }, [statusLogin]);
 
   const [logoutUser, { loading: isLogoutLoading }] = useLogoutUser();
 
   useEffect(() => {
     if (meData?.me) {
-      console.log("data : ", meData.me);
+      // console.log("data : ", meData.me);
       setUserBiodata(meData.me);
     }
   }, [meData]);
@@ -87,12 +88,9 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     captchaResponse: any
   ) => {
     try {
-      console.log("username, password : ", username + " and " + password);
       const { data, errors } = await loginUser({
         variables: { username, password, captchaResponse },
       });
-      console.log("data?.login : ", typeof data?.login);
-      console.log("data?.login : ", data?.login);
       if (data?.login && data?.login?.success && data?.login?.message !== "") {
         setStatusLogin(data?.login);
         window.location.href = "/dashboard";
@@ -103,7 +101,6 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
   };
 
   const logout = async () => {
-    console.log("Cache sebelum clearStore:", client.cache.extract());
     await client.clearStore();
     setIsLoggingOut(true);
     await logoutUser();

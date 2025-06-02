@@ -1,5 +1,5 @@
 import { createUser } from "@/graphql/modules/auth/users/user.services";
-console.log("Import successful");
+
 const run = async () => {
   const users = [
     {
@@ -226,7 +226,6 @@ const run = async () => {
 
   for (const user of users) {
     try {
-      console.log("Creating user:", user.username);
       const createdUser = await createUser(
         user.username,
         user.password,
@@ -234,7 +233,6 @@ const run = async () => {
         user.is_active,
         user.biodata
       );
-      console.log("User created:", createdUser);
     } catch (error) {
       console.error("Error:", error);
     }

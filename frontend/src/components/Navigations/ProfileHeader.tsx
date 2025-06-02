@@ -13,6 +13,7 @@ import { useAuthContext } from "@/contexts/AuthContext";
 import { combineAndCapitalize } from "@/utils/textUtils";
 import { formatTimestampCompact } from "@/utils/timeGenerate";
 import ProfileheaderSkeleton from "@/components/Skeletons/ProfileHeaderSkeleton";
+import { FaUserTie } from "react-icons/fa";
 
 const ProfileHeader = () => {
   const { isNeumorphism } = useNeumorph();
@@ -57,11 +58,17 @@ const ProfileHeader = () => {
       >
         <div className="flex flex-wrap flex-col md:flex-row md:items-start md:space-x-4">
           <div className="relative flex-shrink-0 mb-4 md:mb-0">
-            <img
-              alt={`Avatar of ${fullName}`}
-              className="rounded-lg w-16 h-16 object-cover"
-              src="https://storage.googleapis.com/a1aa/image/ae21d4fa-7bbf-4172-3d0e-0c993ea0ed35.jpg"
-            />
+            {
+              // biodata?.profile_picture ? (
+              <img
+                alt={`Avatar of ${fullName}`}
+                className="rounded-lg w-18 h-18 object-cover"
+                src="/api/upload?filename=ridwan.jpeg"
+              />
+              // ) : (
+              //   <FaUserTie className="w-18 h-18" />
+              // )
+            }
             <span
               className="absolute top-1 left-1 w-2.5 h-2.5 rounded-full border-1 border-[#aadf37] bg-[#9fef00]"
               title="Online status"

@@ -17,6 +17,7 @@ const biodataSchema = gql`
     nationality: String
     marital_status: String
     occupation: String
+    profile_picture: String
   }
 
   input BiodataInput {
@@ -34,6 +35,7 @@ const biodataSchema = gql`
     nationality: String
     marital_status: String
     occupation: String
+    profile_picture: String
   }
 
   input BiodataUpdateInput {
@@ -52,6 +54,7 @@ const biodataSchema = gql`
     nationality: String
     marital_status: String
     occupation: String
+    profile_picture: String
   }
 
   type Query {
