@@ -34,6 +34,7 @@ export const ME_QUERY = gql`
         nationality
         marital_status
         occupation
+        profile_picture
       }
     }
   }

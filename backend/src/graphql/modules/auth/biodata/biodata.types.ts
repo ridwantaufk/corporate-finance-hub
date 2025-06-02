@@ -15,6 +15,7 @@ export interface Biodata {
   occupation: string;
   updated_at: Date;
   created_at: Date;
+  profile_picture: string;
 }
 
 export interface getBiodataWithId extends Partial<Biodata> {

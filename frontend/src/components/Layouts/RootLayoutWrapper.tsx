@@ -13,6 +13,7 @@ import {
 } from "react-icons/lia";
 import { useNeumorph } from "@/contexts/NeumorphContext";
 import { motion, useAnimation } from "framer-motion";
+import ChatUserSidebar from "../Navigations/ChatUserSidebar";
 // import ChatUserSidebar from "@/components/Navigations/ChatUserSidebar";
 
 export default function RootLayoutdWrapper({
@@ -78,7 +79,7 @@ export default function RootLayoutdWrapper({
   return (
     <div className="flex h-screen">
       <Sidebar />
-      {/* <ChatUserSidebar /> */}
+      <ChatUserSidebar />
       <main
         ref={mainRef}
         className={`${

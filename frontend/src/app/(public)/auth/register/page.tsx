@@ -161,19 +161,6 @@ export default function RegisterPage() {
       return;
     }
 
-    console.log("Submitting registration with data:", {
-      username,
-      password: "[REDACTED]",
-      role: role.value,
-      is_active: isActive,
-      biodata: {
-        first_name: biodata.first_name,
-        last_name: biodata.last_name,
-        email: biodata.email,
-        phone: biodata.phone || "",
-      },
-    });
-
     try {
       const { data } = await registerUser({
         variables: {
@@ -192,7 +179,6 @@ export default function RegisterPage() {
         },
       });
 
-      console.log("Registration successful:", data);
       setRegistrationStatus({
         success: true,
         message: "Registration successful! Redirecting to login...",

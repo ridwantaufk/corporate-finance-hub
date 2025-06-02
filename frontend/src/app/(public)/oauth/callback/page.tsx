@@ -20,7 +20,6 @@ export default function Callback(): {} {
 
     oAuthLogin({ variables: { provider: "google", code } })
       .then(({ data }) => {
-        console.log("datas : ", data);
         if (
           data?.oAuthLogin?.success === true &&
           data.oAuthLogin.user &&
@@ -33,7 +32,6 @@ export default function Callback(): {} {
             setDataGoogle(data?.oAuthLogin?.user);
             setError(data?.oAuthLogin?.message);
           } else if (data?.oAuthLogin?.message === "User is not found") {
-            console.log("tes : ", data?.oAuthLogin?.user?.email);
             setDataGoogle(data?.oAuthLogin?.user?.email);
             setError(data?.oAuthLogin?.message);
           }

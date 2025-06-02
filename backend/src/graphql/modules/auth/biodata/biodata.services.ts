@@ -74,7 +74,8 @@ export const createBiodata = async (
   country?: string,
   nationality?: string,
   marital_status?: string,
-  occupation?: string
+  occupation?: string,
+  profile_picture?: string
 ): Promise<CreateBiodata> => {
   const client = await db.connect();
 
@@ -84,7 +85,7 @@ export const createBiodata = async (
     const { rows } = await client.query(
       `INSERT INTO auth.biodata 
         (first_name, last_name, email, date_of_birth, gender, phone, address, city, state, postal_code, country, nationality, marital_status, occupation) 
-       VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) 
+       VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15) 
        RETURNING *`,
       [
         first_name,
@@ -101,6 +102,7 @@ export const createBiodata = async (
         nationality,
         marital_status,
         occupation,
+        profile_picture,
       ]
     );
 
@@ -131,7 +133,8 @@ export const updateBiodata = async (
   country?: string,
   nationality?: string,
   marital_status?: string,
-  occupation?: string
+  occupation?: string,
+  profile_picture?: string
 ): Promise<UpdateBiodata> => {
   const client = await db.connect();
 
@@ -154,6 +157,7 @@ export const updateBiodata = async (
             nationality = $13,
             marital_status = $14,
             occupation = $15,
+            profile_picture = $16,
             updated_at = NOW()
         WHERE biodata_id = $1
         RETURNING *`,
@@ -173,6 +177,7 @@ export const updateBiodata = async (
         nationality,
         marital_status,
         occupation,
+        profile_picture,
       ]
     );
 

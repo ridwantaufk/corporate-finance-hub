@@ -28,15 +28,11 @@ const UserResolver = {
   Query: {
     getCaptcha: async (_: any, __: any, context: GraphQLContext) => {
       const { data, solution } = await createCaptcha();
-      console.log("solution : ", solution);
       context.session.captcha = solution;
-      console.log("context.session : ", context.session);
       await context.session.save?.();
       return { data, solution: null };
     },
     me: async (_parent: any, _args: any, context: any) => {
-      console.log("context : ", context);
-      console.log("context.user : ", context.user);
       if (!context.user) return null;
 
       const user = await getUserById(context.user.user_id);
@@ -49,7 +45,7 @@ const UserResolver = {
         ...user,
         biodata,
       };
-      console.log("userWithBiodata : ", userWithBiodata);
+
       return userWithBiodata;
     },
     getUserById: (
@@ -83,14 +79,6 @@ const UserResolver = {
       if (!result) {
         throw new Error("Invalid username or password");
       }
-      console.log("session. : ", session);
-      console.log("session.captchaVerified : ", session.captchaVerified);
-      console.log(
-        "VERIFFF : ",
-        !session.captchaVerified ||
-          (session.captchaVerified.response !== "success" &&
-            !session.captchaVerified.token)
-      );
       if (
         !session.captchaVerified ||
         (session.captchaVerified.response !== "success" &&
@@ -115,10 +103,10 @@ const UserResolver = {
       // opsi 2 (lebih kuat)
       const RSAKeyPair = setTokenjwtRS256(res, result.accessToken);
 
-      console.log("=== USER LOGIN SUCCESS ===");
-      console.log("User Data:", result.user);
-      console.log("Access Token:", result.accessToken);
-      console.log("===========================");
+      // console.log("=== USER LOGIN SUCCESS ===");
+      // console.log("User Data:", result.user);
+      // console.log("Access Token:", result.accessToken);
+      // console.log("===========================");
 
       // return {
       //   accessToken: result.accessToken,
@@ -138,15 +126,12 @@ const UserResolver = {
       context: GraphQLContext
     ) => {
       const { session } = context;
-      console.log("session:", session);
 
       if (!session.captcha) {
         throw new Error("Captcha not generated");
       }
 
       const verification = await verifyCaptcha(session.captcha, responseBody);
-
-      console.log("verification:", verification);
 
       context.session.captchaVerified = verification;
 
@@ -183,8 +168,6 @@ const UserResolver = {
             message: "User is not found",
             user: { email: user.email },
           };
-
-        console.log("oAuth2ClientRespons : ", oAuth2ClientResponse);
       } else {
         throw new Error("Unsupported OAuth provider");
       }
@@ -192,10 +175,10 @@ const UserResolver = {
       // token di cookie HttpOnly dengan RS256
       setTokenjwtRS256(res, accessToken);
 
-      console.log("=== OAUTH LOGIN SUCCESS ===");
-      console.log("User Data:", user);
-      console.log("Access Token:", accessToken);
-      console.log("===========================");
+      // console.log("=== OAUTH LOGIN SUCCESS ===");
+      // console.log("User Data:", user);
+      // console.log("Access Token:", accessToken);
+      // console.log("===========================");
 
       return { success: true, message: "Login successful!", user };
     },
@@ -205,8 +188,6 @@ const UserResolver = {
       { input }: { input: CreateUserBiodata }
     ): Promise<{ success: boolean; message: string }> => {
       try {
-        console.log("masuk");
-        console.log("biodata:", input.biodata);
         await createUser(
           input.username,
           input.password,

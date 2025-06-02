@@ -214,7 +214,7 @@ const Topbar = () => {
               className={`${
                 isNeumorphism ? "neumorphic-convex rounded-full" : ""
               } rounded-full w-9 h-9 object-cover`}
-              src="https://storage.googleapis.com/a1aa/image/d14a373c-68da-46ba-cec6-7e6139be05c8.jpg"
+              src="api/upload?filename=ridwan.jpeg"
             />
             <div className="text-[10px] font-bold text-[var(--text)] whitespace-nowrap leading-tight">
               {userBiodata?.biodata

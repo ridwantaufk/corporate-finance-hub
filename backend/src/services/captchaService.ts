@@ -7,9 +7,6 @@ import * as sliderCaptcha from "@slider-captcha/core";
 export async function createCaptcha() {
   const { data, solution } = await sliderCaptcha.create();
 
-  console.log("Processed Captcha Data:", data);
-  console.log("Processed Captcha Solution:", solution);
-
   return { data, solution };
 }
 
@@ -21,7 +18,6 @@ export async function verifyCaptcha(
     trail: { x: number[]; y: number[] };
   }
 ) {
-  console.log("solution, responseBody:", solution, responseBody);
 
   const verification = await sliderCaptcha.verify(
     String(solution),

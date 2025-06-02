@@ -43,6 +43,7 @@ const BiodataResolver = {
         nationality,
         marital_status,
         occupation,
+        profile_picture,
       }: {
         first_name: string;
         last_name: string;
@@ -58,6 +59,7 @@ const BiodataResolver = {
         nationality?: string;
         marital_status?: string;
         occupation?: string;
+        profile_picture?: string;
       }
     ) => {
       return createBiodata(
@@ -74,7 +76,8 @@ const BiodataResolver = {
         country,
         nationality,
         marital_status,
-        occupation
+        occupation,
+        profile_picture
       );
     },
 
@@ -96,6 +99,7 @@ const BiodataResolver = {
         nationality,
         marital_status,
         occupation,
+        profile_picture,
       }: {
         biodata_id: number;
         first_name?: string;
@@ -112,6 +116,7 @@ const BiodataResolver = {
         nationality?: string;
         marital_status?: string;
         occupation?: string;
+        profile_picture?: string;
       }
     ) => {
       return updateBiodata(
@@ -129,7 +134,8 @@ const BiodataResolver = {
         country,
         nationality,
         marital_status,
-        occupation
+        occupation,
+        profile_picture
       );
     },
 
