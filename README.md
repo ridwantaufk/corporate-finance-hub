@@ -23,9 +23,8 @@
 ---
 
 <p>
-  <img src="./frontend/public/thumbs/login_FE.png" width="50%" />
-  &nbsp;&nbsp;
-  <img src="./frontend/public/thumbs/dashboard_FE.png" width="50%" />
+  <img src="./frontend/public/thumbs/login_FE.png" width="48%" style="margin-right:2%" />
+  <img src="./frontend/public/thumbs/dashboard_FE.png" width="48%" />
 </p>
 
 ---
