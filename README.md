@@ -22,6 +22,11 @@
 
 ---
 
+<img src="./frontend/public/assets/login_FE.png" />
+<img src="./frontend/public/assets/dashboard_FE.png" />
+
+---
+
 ## 📋 Table of Contents
 
 <details>
