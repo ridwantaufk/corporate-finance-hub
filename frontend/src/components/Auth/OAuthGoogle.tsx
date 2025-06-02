@@ -19,16 +19,27 @@ export default function OAuthGoogle() {
     <>
       <style>
         {`
-        @keyframes rainbow {
-            0%, 100% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-        }
         .animated-rainbow-text {
-            background: linear-gradient(270deg, #ff0000, #ffa500, #ffff00, #008000, #0000ff, #4b0082, #ee82ee);
-            background-size: 1400% 1400%;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            animation: rainbow 8s ease infinite;
+          background: linear-gradient(
+            270deg,
+            #ff4d4d,  /* soft red */
+            #ff944d,  /* orange-ish */
+            #ffff4d,  /* lemon yellow */
+            #80ff80,  /* light green */
+            #66ccff,  /* sky blue */
+            #b366ff,  /* lavender */
+            #ff4dff   /* pink-violet */
+          );
+          background-size: 800% 800%;
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          animation: rainbow 10s ease infinite;
+        }
+
+        @keyframes rainbow {
+          0% { background-position: 0% 50%; }
+          50% { background-position: 100% 50%; }
+          100% { background-position: 0% 50%; }
         }
         `}
       </style>
