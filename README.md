@@ -22,8 +22,8 @@
 
 ---
 
-<img src="./frontend/public/assets/login_FE.png" />
-<img src="./frontend/public/assets/dashboard_FE.png" />
+<img src="./frontend/public/thumbs/login_FE.png" />
+<img src="./frontend/public/thumbs/dashboard_FE.png" />
 
 ---
 
