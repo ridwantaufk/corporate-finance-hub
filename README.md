@@ -22,11 +22,16 @@
 
 ---
 
-<div style="display: flex; gap: 10px;">
-  <img src="./frontend/public/thumbs/login_FE.png" style="width: 50%;" />
-  <img src="./frontend/public/thumbs/dashboard_FE.png" style="width: 50%;" />
-</div>
-
+<table>
+  <tr>
+    <td>
+      <img src="./frontend/public/thumbs/login_FE.png" width="100%" />
+    </td>
+    <td>
+      <img src="./frontend/public/thumbs/dashboard_FE.png" width="100%" />
+    </td>
+  </tr>
+</table>
 
 ---
 
